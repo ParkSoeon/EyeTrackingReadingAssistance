@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://bawesk5mg3utj"]
+
+[ext_resource type="Script" uid="uid://1082cc1ou20k" path="res://red_and_blue.gd" id="1_iyq2v"]
+[ext_resource type="PackedScene" uid="uid://ixcx7k44x7xt" path="res://player.tscn" id="2_bwnq1"]
+[ext_resource type="PackedScene" uid="uid://bxxis1q30rma1" path="res://hud.tscn" id="4_rncnw"]
+
+[sub_resource type="Texture2DRD" id="Texture2DRD_iyq2v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ui3r"]
+size = Vector2(607, 1090)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_rncnw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bwnq1"]
+size = Vector2(580, 1082)
+
+[node name="RedAndBlue" type="Node"]
+script = ExtResource("1_iyq2v")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("Texture2DRD_iyq2v")
+
+[node name="Red" type="Area2D" parent="."]
+modulate = Color(0.151276, 0.151276, 0.151276, 1)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Red"]
+position = Vector2(293.5, 539)
+shape = SubResource("RectangleShape2D_6ui3r")
+
+[node name="Sprite2D" type="Sprite2D" parent="Red"]
+modulate = Color(0, 0, 0, 0.698039)
+position = Vector2(474.25, 540.75)
+scale = Vector2(945.5, 1082.5)
+texture = SubResource("CanvasTexture_rncnw")
+
+[node name="Blue" type="Area2D" parent="."]
+position = Vector2(1264, 10)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blue"]
+position = Vector2(362, 531)
+shape = SubResource("RectangleShape2D_bwnq1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Blue"]
+modulate = Color(0, 0, 0, 0.698039)
+position = Vector2(171, 530.5)
+scale = Vector2(972, 1077)
+texture = SubResource("CanvasTexture_rncnw")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(942, 547)
+
+[node name="Player" parent="." instance=ExtResource("2_bwnq1")]
+position = Vector2(951, 545)
+
+[node name="HUD" parent="." instance=ExtResource("4_rncnw")]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 907.0
+offset_top = 31.0
+offset_right = 1170.0
+offset_bottom = 156.0
+theme_override_font_sizes/font_size = 50
+text = "선택!"
+
+[connection signal="area_shape_entered" from="Red" to="." method="_on_red_area_shape_entered"]
+[connection signal="area_entered" from="Blue" to="." method="_on_blue_area_entered"]
+[connection signal="finish" from="HUD" to="." method="_on_hud_finish"]

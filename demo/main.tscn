@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bd6ngxrqw5m8s"]
+
+[ext_resource type="Script" uid="uid://bqoqpq3lmmemp" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://ixcx7k44x7xt" path="res://player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://bid640k2ffjp5" path="res://portal.tscn" id="2_0xm2m"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_h2yge")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.119973, 0.0527629, 0.154325, 1)
+
+[node name="portal" parent="." instance=ExtResource("2_0xm2m")]
+position = Vector2(1758, 540)
+
+[node name="Player" parent="." instance=ExtResource("1_ig7tw")]
+position = Vector2(378, 510)
+
+[connection signal="hit" from="Player" to="." method="_on_player_hit"]
