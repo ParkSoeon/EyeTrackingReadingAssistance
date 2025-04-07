@@ -141,8 +141,8 @@ with torch.no_grad():
                     text = "Eyes Open"
                 print(text)
 
-        rgb_img = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        results_detection = face_detection.process(rgb_img)
+        frame = cv2.flip(frame, 1)
+        results_detection = face_detection.process(frame)
 
         if results_detection.detections:
             for detection in results_detection.detections:
