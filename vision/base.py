@@ -31,6 +31,25 @@ screen_height_mm = 186.8
 camera_width = 640
 camera_height = 480
 
+mp_face_mesh = mp.solutions.face_mesh
+face_mesh = mp_face_mesh.FaceMesh(refine_landmarks=True)
+
+# 눈을 구성하는 랜드마크 인덱스
+LEFT_EYE_IDX = [362, 385, 387, 263, 373, 380]  # 왼쪽 눈
+RIGHT_EYE_IDX = [33, 160, 158, 133, 153, 144]  # 오른쪽 눈
+
+def calculate_EAR(landmarks, eye_points):
+    """EAR(Eye Aspect Ratio) 계산"""
+    p1, p2, p3, p4, p5, p6 = [np.array([landmarks[i].x, landmarks[i].y]) for i in eye_points]
+    
+    # EAR 공식 적용
+    vertical1 = np.linalg.norm(p2 - p6)
+    vertical2 = np.linalg.norm(p3 - p5)
+    horizontal = np.linalg.norm(p1 - p4)
+
+    ear = (vertical1 + vertical2) / (2.0 * horizontal)
+    return ear
+
 
 # 시선 스무딩 (이전 프레임 값과 차이 조정)
 class GazeSmoothing:
@@ -97,8 +116,30 @@ idx_tensor = torch.FloatTensor([idx for idx in range(90)]).to(device)
 with torch.no_grad():
     while True:
         success, frame = cap.read()
-        frame = cv2.flip(frame, 1)
-        start_fps = time.time()
+        rgb_img = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        results = face_mesh.process(frame)
+
+        if results.multi_face_landmarks:
+            for face_landmarks in results.multi_face_landmarks:
+                landmarks = face_landmarks.landmark
+
+                # 각 눈의 EAR 계산
+                left_ear = calculate_EAR(landmarks, LEFT_EYE_IDX)
+                right_ear = calculate_EAR(landmarks, RIGHT_EYE_IDX)
+
+                # EAR 임계값 설정 (눈 감았다고 판단하는 기준)
+                EAR_THRESHOLD = 0.2
+
+                # 감지 결과 표시
+                if left_ear < EAR_THRESHOLD and right_ear < EAR_THRESHOLD:
+                    text = "Both Eyes Closed!"
+                elif left_ear < EAR_THRESHOLD:
+                    text = "Left Eye Closed!"
+                elif right_ear < EAR_THRESHOLD:
+                    text = "Right Eye Closed!"
+                else:
+                    text = "Eyes Open"
+                print(text)
 
         rgb_img = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         results_detection = face_detection.process(rgb_img)
@@ -170,22 +211,22 @@ with torch.no_grad():
                 command = 0
                 if new_x == 0:
                     command +=1
-                    print("left")
+                    # print("left")
                 elif new_x == screen_width:
                     command += 2
-                    print("right")
+                    # print("right")
                 else:
                     command += 4
-                    print("center")
+                    # print("center")
                 if new_y ==0:
                     command += 8
-                    print("up")
+                    # print("up")
                 elif new_y == screen_height:
                     command += 16
-                    print("down")
+                    # print("down")
                 else:
                     command += 32
-                    print("center")
+                    # print("center")
 
 
 cap.release()
