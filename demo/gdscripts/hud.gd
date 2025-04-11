@@ -1,10 +1,15 @@
 extends Node
 signal finish
 
-var url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" # API 키를 입력하세요
+var url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key="
 
 func _ready():
-	pass
+	var file = FileAccess.open("res://config.json", FileAccess.READ)
+	if file:
+		var json = JSON.parse_string(file.get_as_text())
+		var api_key = json["api_key"]
+		url +=api_key
+		file.close()
 	
 
 
@@ -14,7 +19,7 @@ func request(select:String):
 	var data_to_send = {
 		"contents": [{
 			"parts": [{
-				"text": "답변은 bbcode형식을 이용해 \n 답변은 간결하게 해줘 \n 필요없는 기호와 말은 넣지마\n 너는 게임에서 사용자의 선택을 돕는 친구야\n 게임에서 사용자가 매트릭스의 "+select+"을 선택했어.\n 하지만 사용자가 아직은 선택을 바꿀 수 있어\n 사용자의 선택이 올바른지 아니면 틀렸는지 다시 생각할 수 있게 친구에게 대화하 듯 조언해줘"
+				"text": "답변은 bbcode형식을 이용해 \n 답변은 간결하게 해줘 \n 필요없는 기호와 말은 넣지마\n"+select+"\n 하지만 사용자가 아직은 선택을 바꿀 수 있어\n 사용자의 선택이 올바른지 아니면 틀렸는지 다시 생각할 수 있게 친구에게 대화하 듯 조언해줘"
 			}]
 		}]
 	}

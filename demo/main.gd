@@ -16,4 +16,4 @@ func _on_player_hit() -> void:
 	call_deferred("change_scene")
 
 func change_scene():
-	get_tree().change_scene_to_file("res://red_and_blue.tscn")
+	get_tree().change_scene_to_file("res://scenes/choice.tscn")
