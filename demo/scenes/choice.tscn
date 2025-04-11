@@ -1,0 +1,101 @@
+[gd_scene load_steps=10 format=3 uid="uid://d37onjpgkukg5"]
+
+[ext_resource type="Script" uid="uid://c34r42njcgddk" path="res://gdscripts/choice.gd" id="1_ycxmd"]
+[ext_resource type="PackedScene" uid="uid://ixcx7k44x7xt" path="res://player.tscn" id="2_yhyp7"]
+[ext_resource type="PackedScene" uid="uid://bxxis1q30rma1" path="res://scenes/hud.tscn" id="3_8qvna"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_jt4bu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8qvna"]
+size = Vector2(526, 1080)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yhyp7"]
+font_size = 50
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_3iiop"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_827pk"]
+size = Vector2(541, 1080)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8qvna"]
+font_size = 50
+
+[node name="Choice" type="Node"]
+script = ExtResource("1_ycxmd")
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_group_ = true
+
+[node name="Blue" type="Area2D" parent="."]
+position = Vector2(1262, 10)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Blue"]
+modulate = Color(0, 0, 0, 0.698039)
+position = Vector2(171.5, 530)
+scale = Vector2(973, 1080)
+texture = SubResource("CanvasTexture_jt4bu")
+
+[node name="BlueCollision" type="CollisionShape2D" parent="Blue"]
+position = Vector2(335, 530)
+shape = SubResource("RectangleShape2D_8qvna")
+
+[node name="Label" type="Label" parent="Blue/BlueCollision"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -292.0
+offset_top = -11.0
+offset_right = 304.0
+offset_bottom = 193.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_yhyp7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Red" type="Area2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Red"]
+modulate = Color(0, 0, 0, 0.698039)
+position = Vector2(473.5, 540)
+scale = Vector2(947, 1080)
+texture = SubResource("CanvasTexture_3iiop")
+
+[node name="RedCollision" type="CollisionShape2D" parent="Red"]
+position = Vector2(326.5, 540)
+shape = SubResource("RectangleShape2D_827pk")
+
+[node name="Label" type="Label" parent="Red/RedCollision"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -292.0
+offset_top = -11.0
+offset_right = 304.0
+offset_bottom = 193.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "adsfasdfasdasdfa"
+label_settings = SubResource("LabelSettings_8qvna")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player" parent="." instance=ExtResource("2_yhyp7")]
+position = Vector2(951, 545)
+
+[node name="HUD" parent="." instance=ExtResource("3_8qvna")]
+
+[connection signal="area_entered" from="Blue" to="." method="_on_blue_area_entered"]
+[connection signal="area_exited" from="Blue" to="." method="_on_blue_area_exited"]
+[connection signal="area_entered" from="Red" to="." method="_on_red_area_entered"]
+[connection signal="area_exited" from="Red" to="." method="_on_red_area_exited"]
+[connection signal="finish" from="HUD" to="." method="_on_hud_finish"]
