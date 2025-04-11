@@ -1,0 +1,155 @@
+{
+    "start": {
+      "text": "헨젤과 그레텔은 부모님의 손에 이끌려 숲 속으로 가고 있어요.",
+      "background": "res://assets/bg_start.png",
+      "character": "res://assets/char_hansel_gretel.png",
+      "prompt":"너는 인터렉티브 동화에서 사용자의 선택을 돕는 친구야\n 헨젤과 그레텔은 부모님의 손에 이끌려 숲 속으로 가고 있어\n 빵조각으로 흔적을 남기는 선택과 나무에 칼집으로 흔적을 남기는 선택이 있어",
+      "choices": [
+      { 
+        "id": "breadcrumbs", 
+        "text": "빵조각을 떨어뜨린다", 
+        "advice": "빵조각을 떨어뜨리는 방법은 길을 기억하는 좋은 방법이지만, 새들이 먹어버릴 수 있습니다. 이를 고려해보세요.",
+        "type": "advice",
+        "action": "breadcrumbs_action"
+      },
+      { 
+        "id": "mark_tree", 
+        "text": "나무에 칼집을 낸다", 
+        "advice": "칼집을 내는 방법은 좋지만, 나무가 너무 많아 도움이 될지 확신할 수 없습니다. 나무를 잘 골라보세요.",
+        "type": "advice",
+        "action": "mark_tree_action"
+      }
+    ],
+      "sound": "res://assets/music_intro.ogg"
+    },
+    "breadcrumbs": {
+    "text": "헨젤은 빵조각을 떨어뜨리며 길을 남기기 시작했어요. 하지만 새들이 먹어버리고 말았죠.",
+    "background": "res://assets/bg_forest.png",
+    "choices": [
+      { 
+        "id": "build_fire", 
+        "text": "불을 피워서 기다린다", 
+        "advice": "불을 피우면 따뜻하게 있을 수 있지만, 새들이 더 빨리 빵조각을 먹을 수도 있어요. 주의하세요.",
+        "type": "advice",
+        "action": "build_fire_action"
+      },
+      { 
+        "id": "walk_on", 
+        "text": "길을 따라 계속 걷는다", 
+        "advice": "걷다 보면 결국 새로운 장소를 찾을 수 있을 거예요. 다만, 밤에는 위험할 수 있으니 조심하세요.",
+        "type": "advice",
+        "action": "walk_on_action"
+      }
+    ]
+    },
+    "mark_tree": {
+      "text": "헨젤은 나무에 칼집을 내어 길을 찾으려 했어요.",
+      "background": "res://assets/bg_forest.png",
+      "character": "res://assets/char_hansel.png",
+      "choices": [
+        { "id": "build_fire", "text": "불을 피워서 기다린다" },
+        { "id": "walk_on", "text": "길을 따라 계속 걷는다" }
+      ]
+    },
+    "build_fire": {
+      "text": "불을 피우고 기다리지만, 밤은 점점 깊어지고 길을 찾을 수 없어요.",
+      "background": "res://assets/bg_night_forest.png",
+      "choices": [
+        { "id": "find_house", "text": "과자 집을 찾아본다" },
+        { "id": "keep_waiting", "text": "계속 불을 피우고 기다린다" }
+      ]
+    },
+    "walk_on": {
+      "text": "길을 걷다 보니 이상한 과자 집이 나타났어요.",
+      "background": "res://assets/bg_candy_house.png",
+      "choices": [
+        { "id": "enter_house", "text": "집 안으로 들어간다" },
+        { "id": "walk_away", "text": "그냥 지나친다" }
+      ]
+    },
+    "keep_waiting": {
+      "text": "기다리던 중, 결국 날이 밝고 길을 찾기 시작했어요. 그러나, 숲 속에서 길을 잃었어요.",
+      "background": "res://assets/bg_forest_morning.png",
+      "choices": [
+        { "id": "find_house", "text": "과자 집을 찾아본다" },
+        { "id": "go_home", "text": "집으로 돌아간다" }
+      ]
+    },
+    "find_house": {
+      "text": "과자 집이 눈앞에 나타났어요. 집을 살펴보니, 마녀가 살고 있는 곳 같아요.",
+      "background": "res://assets/bg_candy_house.png",
+      "character": "res://assets/char_witch.png",
+      "choices": [
+        { "id": "enter_house", "text": "집 안으로 들어간다" },
+        { "id": "leave_house", "text": "집을 떠난다" }
+      ]
+    },
+    "enter_house": {
+      "text": "마녀가 집에 있었고, 헨젤과 그레텔을 보며 웃고 있었어요. 그녀는 그들을 잡으려 했죠.",
+      "background": "res://assets/bg_witch_house.png",
+      "character": "res://assets/char_witch.png",
+      "choices": [
+        { "id": "escape", "text": "마녀에게서 도망친다" },
+        { "id": "talk", "text": "마녀와 이야기를 나눈다" }
+      ]
+    },
+    "leave_house": {
+      "text": "헨젤과 그레텔은 집을 떠나 숲 속을 계속 걸어가기로 했어요. 하지만 마녀가 그들을 쫓기 시작했어요.",
+      "background": "res://assets/bg_forest.png",
+      "choices": [
+        { "id": "escape", "text": "마녀에게서 도망친다" },
+        { "id": "fight", "text": "마녀와 싸운다" }
+      ]
+    },
+    "escape": {
+      "text": "마녀에게서 도망쳤지만, 길을 잃고 결국 숲 속에서 헤매게 되었어요.",
+      "background": "res://assets/bg_forest_escape.png",
+      "choices": [
+        { "id": "find_parents", "text": "부모님을 찾아간다" },
+        { "id": "explore", "text": "새로운 모험을 떠난다" }
+      ]
+    },
+    "talk": {
+      "text": "마녀는 나쁜 속셈을 품고 있었고, 헨젤을 잡아가려고 했어요.",
+      "background": "res://assets/bg_witch_trap.png",
+      "choices": [
+        { "id": "rescue_hansel", "text": "그레텔이 헨젤을 구한다" },
+        { "id": "wait_for_help", "text": "도움을 기다린다" }
+      ]
+    },
+    "rescue_hansel": {
+      "text": "그레텔은 기지를 발휘해 헨젤을 구출하고, 마녀를 물리쳤어요. 둘은 무사히 탈출했어요.",
+      "background": "res://assets/bg_escape.png",
+      "choices": [
+        { "id": "find_parents", "text": "부모님을 찾아간다" },
+        { "id": "explore", "text": "새로운 모험을 떠난다" }
+      ]
+    },
+    "wait_for_help": {
+      "text": "그레텔은 마녀에게 잡혔고, 헨젤은 혼자서 도망칠 수 없었어요.",
+      "background": "res://assets/bg_witch_captured.png",
+      "choices": [
+        { "id": "end", "text": "끝" }
+      ]
+    },
+    "fight": {
+      "text": "마녀와 싸웠지만, 힘이 부족해 결국 마녀에게 잡히게 되었어요.",
+      "background": "res://assets/bg_witch_captured.png",
+      "choices": [
+        { "id": "end", "text": "끝" }
+      ]
+    },
+    "go_home": {
+      "text": "집으로 돌아가려 했지만, 길을 잃고 결국 숲 속에서 헤매었어요.",
+      "background": "res://assets/bg_forest_lost.png",
+      "choices": [
+        { "id": "find_house", "text": "과자 집을 찾아본다" },
+        { "id": "keep_going", "text": "계속 걷는다" }
+      ]
+    },
+    "end": {
+      "text": "헨젤과 그레텔의 모험은 여기서 끝났어요. 마녀에게 잡혔거나 길을 잃고 끝을 맞이했어요.",
+      "background": "res://assets/bg_end.png",
+      "sound": "res://assets/music_end.ogg"
+    }
+  }
