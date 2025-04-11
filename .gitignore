@@ -9,6 +9,8 @@
 .import/
 export.cfg
 export_presets.cfg
+# Hide api keys
+config.json
 
 # Imported translations (automatically generated from CSV files)
 *.translation
