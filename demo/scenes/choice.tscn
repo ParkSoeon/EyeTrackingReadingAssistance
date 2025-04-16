@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d37onjpgkukg5"]
+[gd_scene load_steps=12 format=3 uid="uid://d37onjpgkukg5"]
 
 [ext_resource type="Script" uid="uid://c34r42njcgddk" path="res://gdscripts/choice.gd" id="1_ycxmd"]
 [ext_resource type="PackedScene" uid="uid://ixcx7k44x7xt" path="res://player.tscn" id="2_yhyp7"]
@@ -22,6 +22,9 @@ font_size = 50
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jt4bu"]
 size = Vector2(59, 1080)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jt4bu"]
+font_size = 40
 
 [node name="Choice" type="Node"]
 script = ExtResource("1_ycxmd")
@@ -113,6 +116,18 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BluePortal"]
 shape = SubResource("RectangleShape2D_jt4bu")
+
+[node name="StoryLabel" type="Label" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 598.0
+offset_top = 137.0
+offset_right = -586.0
+offset_bottom = 425.0
+grow_horizontal = 2
+text = "asdasd"
+label_settings = SubResource("LabelSettings_jt4bu")
+horizontal_alignment = 1
 
 [connection signal="area_entered" from="Blue" to="." method="_on_blue_area_entered"]
 [connection signal="area_entered" from="Red" to="." method="_on_red_area_entered"]

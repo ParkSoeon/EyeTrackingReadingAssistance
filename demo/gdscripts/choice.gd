@@ -1,7 +1,7 @@
 extends Node
 
 
-#@onready var story_label = $StoryLabel
+@onready var story_label = $StoryLabel
 #@onready var background = $Background
 #@onready var character = $Character
 @onready var left_label = $Red/RedCollision/Label
@@ -23,8 +23,8 @@ func load_story_node(node_id: String):
 		print("err")
 		return
 	# 텍스트 출력
-	#story_label.text = data.get("text", "")
-	print(data.get("text", ""))
+	story_label.text = data.get("text", "")
+	#print(data.get("text", ""))
 	
 	prompt = data.get("prompt","")
 	
