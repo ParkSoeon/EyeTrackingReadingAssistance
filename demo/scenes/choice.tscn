@@ -129,8 +129,20 @@ text = "asdasd"
 label_settings = SubResource("LabelSettings_jt4bu")
 horizontal_alignment = 1
 
+[node name="Button" type="Button" parent="."]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -316.5
+offset_right = 316.5
+offset_bottom = 368.0
+grow_horizontal = 2
+text = "Button"
+
 [connection signal="area_entered" from="Blue" to="." method="_on_blue_area_entered"]
 [connection signal="area_entered" from="Red" to="." method="_on_red_area_entered"]
 [connection signal="finish" from="HUD" to="." method="_on_hud_finish"]
 [connection signal="area_entered" from="RedPortal" to="." method="_on_red_portal_area_entered"]
 [connection signal="area_entered" from="BluePortal" to="." method="_on_blue_portal_area_entered"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

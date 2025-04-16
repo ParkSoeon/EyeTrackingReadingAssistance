@@ -64,3 +64,10 @@ func _on_red_portal_area_entered(area: Area2D) -> void:
 func _on_blue_portal_area_entered(area: Area2D) -> void:
 	STATE.current_node = choices[choice].id
 	call_deferred("change_scene")
+
+
+func _on_button_pressed() -> void:
+	print("pressed")
+	get_node("Player").factor = 1
+	get_node("HUD").request("안녕")
+	pass # Replace with function body.
