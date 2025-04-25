@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d37onjpgkukg5"]
+[gd_scene load_steps=13 format=3 uid="uid://d37onjpgkukg5"]
 
 [ext_resource type="Script" uid="uid://c34r42njcgddk" path="res://gdscripts/choice.gd" id="1_ycxmd"]
 [ext_resource type="PackedScene" uid="uid://ixcx7k44x7xt" path="res://player.tscn" id="2_yhyp7"]
@@ -25,6 +25,8 @@ size = Vector2(59, 1080)
 
 [sub_resource type="LabelSettings" id="LabelSettings_jt4bu"]
 font_size = 40
+
+[sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_8qvna"]
 
 [node name="Choice" type="Node"]
 script = ExtResource("1_ycxmd")
@@ -139,6 +141,11 @@ offset_right = 316.5
 offset_bottom = 368.0
 grow_horizontal = 2
 text = "Button"
+
+[node name="AudioStreamReocrd" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamMicrophone_8qvna")
+autoplay = true
+bus = &"Record"
 
 [connection signal="area_entered" from="Blue" to="." method="_on_blue_area_entered"]
 [connection signal="area_entered" from="Red" to="." method="_on_red_area_entered"]

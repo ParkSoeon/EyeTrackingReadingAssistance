@@ -11,9 +11,19 @@ var choice
 var prompt
 var storyManager = preload("res://gdscripts/StoryManager.gd").new()
 
+var effect: AudioEffect
+var recording: AudioStreamWAV
+
+var mix_rate := 44100
+var format := AudioStreamWAV.FORMAT_16_BITS
+
 func _ready():
 	print("ready")
 	load_story_node(STATE.current_node)
+	#var device = AudioServer.get_input_device_list()
+	AudioServer.input_device = AudioServer.get_input_device() # 댓글에 있었네..
+	var idx = AudioServer.get_bus_index("Record")
+	effect = AudioServer.get_bus_effect(idx, 0)
 
 func load_story_node(node_id: String):
 	storyManager.load_story_json("res://story/story.json")
@@ -67,7 +77,28 @@ func _on_blue_portal_area_entered(area: Area2D) -> void:
 
 
 func _on_button_pressed() -> void:
-	print("pressed")
-	get_node("Player").factor = 1
-	get_node("HUD").request("안녕")
-	pass # Replace with function body.
+	if effect.is_recording_active():
+		stop_recording()
+	else:
+		start_recording()
+	#print("pressed")
+	#get_node("Player").factor = 1
+	#get_node("HUD").request("안녕")
+
+var output_path := "res://recorded.wav"
+	
+func start_recording():
+	print("녹음 시작")
+	effect.set_recording_active(true)
+
+func stop_recording():
+	print("녹음 종료 및 저장")
+	recording = effect.get_recording()
+	effect.set_recording_active(false)
+	
+	recording.set_mix_rate(mix_rate)
+	recording.set_format(format)
+	
+	recording.save_to_wav(output_path)
+	print("저장됨: ", output_path)
+	
