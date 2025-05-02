@@ -14,7 +14,7 @@ var storyManager = preload("res://gdscripts/StoryManager.gd").new()
 var effect: AudioEffect
 var recording: AudioStreamWAV
 
-var mix_rate := 44100
+var mix_rate := 48000
 var format := AudioStreamWAV.FORMAT_16_BITS
 
 func _ready():
@@ -77,13 +77,17 @@ func _on_blue_portal_area_entered(area: Area2D) -> void:
 
 
 func _on_button_pressed() -> void:
-	if effect.is_recording_active():
-		stop_recording()
-	else:
-		start_recording()
+	#if effect.is_recording_active():
+		#stop_recording()
+	#else:
+		#start_recording()
 	#print("pressed")
 	#get_node("Player").factor = 1
 	#get_node("HUD").request("안녕")
+	var textEdit = get_node("TextEdit")
+	var text = textEdit.text
+	get_node("HUD").request(text)
+	textEdit.text = ""
 
 var output_path := "res://recorded.wav"
 	

@@ -131,21 +131,41 @@ text = "asdasd"
 label_settings = SubResource("LabelSettings_jt4bu")
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="."]
-visible = false
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -316.5
-offset_right = 316.5
-offset_bottom = 368.0
-grow_horizontal = 2
-text = "Button"
-
 [node name="AudioStreamReocrd" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamMicrophone_8qvna")
 autoplay = true
 bus = &"Record"
+
+[node name="TextEdit" type="TextEdit" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -362.0
+offset_top = -160.0
+offset_right = 374.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 35
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -120.0
+offset_top = -77.0
+offset_right = 120.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Button"
 
 [connection signal="area_entered" from="Blue" to="." method="_on_blue_area_entered"]
 [connection signal="area_entered" from="Red" to="." method="_on_red_area_entered"]
