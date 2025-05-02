@@ -2,6 +2,16 @@ extends Node
 signal finish
 
 var url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key="
+var data = {"contents":[
+	{
+		"role":"user",
+		"parts":[{"text": "너는 게임(인터랙티브동화)에서 사용자의 선택을 돕는 친구야\n 사용자의 선택 또는 생각이 올바른지 조언해줘\n 답변은 간결하게 해줘 \n 필요없는 기호와 말은 넣지마"}]
+	},
+	{
+		"parts": [{"text": "알았어. 선택에 대한 조언을 간결하게 해줄게.\n"}],
+		 "role": "model"
+	}
+],"generationConfig": {"temperature": 1.9}}
 
 func _ready():
 	var file = FileAccess.open("res://config.json", FileAccess.READ)
@@ -15,14 +25,14 @@ func _ready():
 
 # HTTP 요청을 보내는 함수
 func request(select:String):
-	print("Sending request...")
+	#print("Sending request...")
 	var data_to_send = {
-		"contents": [{
-			"parts": [{
-				"text": "답변은 bbcode형식을 이용해 \n 답변은 간결하게 해줘 \n 필요없는 기호와 말은 넣지마\n"+select+"\n 하지만 사용자가 아직은 선택을 바꿀 수 있어\n 사용자의 선택이 올바른지 아니면 틀렸는지 다시 생각할 수 있게 친구에게 대화하 듯 조언해줘"
-			}]
+		"role":"user",
+		"parts": [{
+			"text": select
 		}]
 	}
+	data["contents"].append(data_to_send)
 	
 	# HTTPRequest 노드를 생성하고, 시그널을 연결합니다.
 	var http_request = HTTPRequest.new()
@@ -30,7 +40,7 @@ func request(select:String):
 	http_request.request_completed.connect(self._http_request_completed)
 	
 	# 요청할 데이터를 JSON 문자열로 변환
-	var json = JSON.stringify(data_to_send)
+	var json = JSON.stringify(data)
 	var headers = ["Content-Type: application/json"]
 	
 	# HTTP POST 요청을 보냅니다.
@@ -41,10 +51,10 @@ func request(select:String):
 # HTTP 요청이 완료되었을 때 호출되는 함수
 func _http_request_completed(result, response_code, headers, body):
 	if result == HTTPRequest.RESULT_SUCCESS:
-		print("Request was successful!")
+		#print("Request was successful!")
 		# 응답 본문을 문자열로 가져오기
 		var response_body = body.get_string_from_utf8()
-		print("Response Body: ", response_body)  # 응답 본문 출력하여 확인
+		#print("Response Body: ", response_body)  # 응답 본문 출력하여 확인
 
 		# 응답이 JSON 형식인지 확인
 		var json = JSON.new()
@@ -54,18 +64,17 @@ func _http_request_completed(result, response_code, headers, body):
 			var data_received = json.data
 			# JSON 데이터가 객체인지 확인하고 그 안의 'candidates' 배열에 접근
 			if typeof(data_received) == TYPE_DICTIONARY:
-				print("Parsed JSON: ", data_received)  # 디버깅을 위해 전체 JSON을 출력
+				#print("Parsed JSON: ", data_received)  # 디버깅을 위해 전체 JSON을 출력
 				# 응답이 candidates 배열을 포함하는 경우
 				if data_received.has("candidates") and typeof(data_received["candidates"]) == TYPE_ARRAY:
 					var candidates = data_received["candidates"]
 					if candidates.size() > 0 and candidates[0].has("content"):
 						var content = candidates[0]["content"]
+						data["contents"].append(content)
 						if content.has("parts") and content["parts"].size() > 0:
 							var parts = content["parts"]
 							if parts[0].has("text"):
 								var text = parts[0]["text"]
-								# LLM 응답을 텍스트 라벨에 표시
-								#$Text.text = "LLM says: " + text.strip_edges()  # 공백을 제거한 후 텍스트를 표시
 								var split_text = text.strip_edges().split("\n")  # 텍스트를 줄 바꿈 기준으로 나누기
 								show_text_in_intervals(split_text, 2.0)  # 2초 간격으로 텍스트 출력
 		else:
