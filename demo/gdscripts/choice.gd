@@ -20,6 +20,7 @@ var format := AudioStreamWAV.FORMAT_16_BITS
 func _ready():
 	print("ready")
 	load_story_node(STATE.current_node)
+	get_node("Player").visible = false
 	#var device = AudioServer.get_input_device_list()
 	AudioServer.input_device = AudioServer.get_input_device() # 댓글에 있었네..
 	var idx = AudioServer.get_bus_index("Record")
@@ -64,6 +65,7 @@ func _on_hud_finish() -> void:
 	get_node("Player").factor = 1
 	
 func change_scene():
+	STATE.save_node(STATE.current_node)
 	get_tree().change_scene_to_file("res://scenes/choice.tscn")
 
 func _on_red_portal_area_entered(area: Area2D) -> void:
