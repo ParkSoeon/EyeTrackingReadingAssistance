@@ -66,15 +66,18 @@ func _on_hud_finish() -> void:
 	
 func change_scene():
 	STATE.save_node(STATE.current_node)
-	get_tree().change_scene_to_file("res://scenes/choice.tscn")
+	if STATE.current_node == "end":
+		get_tree().change_scene_to_file("res://scenes/end.tscn")
+	else:
+		get_tree().change_scene_to_file("res://scenes/choice.tscn")
 
 func _on_red_portal_area_entered(area: Area2D) -> void:
-	STATE.current_node = choices[choice].id
+	STATE.current_node = choices[choice].next_scene
 	call_deferred("change_scene")
 
 
 func _on_blue_portal_area_entered(area: Area2D) -> void:
-	STATE.current_node = choices[choice].id
+	STATE.current_node = choices[choice].next_scene
 	call_deferred("change_scene")
 
 

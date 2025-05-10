@@ -12,3 +12,6 @@ func save_choice(key: String, value):
 
 func get_choice(key: String):
 	return choices.get(key, null)
+
+func get_nodes():
+	return story
