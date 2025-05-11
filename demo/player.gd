@@ -7,7 +7,9 @@ var tcp_server = null
 var client_socket = null
 
 var factor = 1
-@export var speed = 4000 # How fast the player will move (pixels/sec).
+@export var speed = 400 # How fast the player will move (pixels/sec).
+@export var left_factor = 1
+@export var right_factor = 1
 var screen_size # Size of the game window.
 
 # Called when the node enters the scene tree for the first time.
@@ -39,6 +41,29 @@ func _process(delta):
 			if data[0] == OK:
 				#print(data[1])
 				move(data[1][0], delta)
+	var velocity = Vector2.ZERO # The player's movement vector.
+	if Input.is_action_pressed("move_right"):
+		velocity.x += 1 * factor * right_factor
+	if Input.is_action_pressed("move_left"):
+		velocity.x -= 1 * factor * left_factor
+	#if Input.is_action_pressed("move_down"):
+		#velocity.y += 1
+	#if Input.is_action_pressed("move_up"):
+		#velocity.y -= 1
+
+	if velocity.length() > 0:
+		velocity = velocity.normalized() * speed
+		$AnimatedSprite2D.play()
+	else:
+		$AnimatedSprite2D.stop()
+		
+	position += velocity * delta
+	#position = position.clamp(Vector2.ZERO, screen_size)
+	
+	if velocity.x < 0:
+		$AnimatedSprite2D.flip_h = true
+	else:
+		$AnimatedSprite2D.flip_h = false
 
 
 #func _on_body_entered(_body):
@@ -62,12 +87,12 @@ func move(cmd, delta):
 	var direction = cmd
 	var velocity = Vector2.ZERO  # 기본적으로 멈춤 상태
 
-	if direction == 10: velocity.x += 1 * factor
-	elif direction == 34: velocity.x += 1 * factor
-	elif direction == 18: velocity.x += 1 * factor
-	elif direction == 9: velocity.x += -1 * factor
-	elif direction == 33: velocity.x += -1 * factor
-	elif direction == 17: velocity.x += -1 * factor
+	if direction == 10: velocity.x += 1 * factor * right_factor
+	elif direction == 34: velocity.x += 1 * factor * right_factor
+	elif direction == 18: velocity.x += 1 * factor * right_factor
+	elif direction == 9: velocity.x += -1 * factor * left_factor
+	elif direction == 33: velocity.x += -1 * factor * left_factor
+	elif direction == 17: velocity.x += -1 * factor * left_factor
 	
 	if direction == 0: velocity = Vector2.ZERO
 	
@@ -78,7 +103,7 @@ func move(cmd, delta):
 		$AnimatedSprite2D.stop()
 		
 	position += velocity * delta
-	position = position.clamp(Vector2.ZERO, screen_size)
+	#position = position.clamp(Vector2.ZERO, screen_size)
 	
 	if velocity.x < 0:
 		$AnimatedSprite2D.flip_h = true

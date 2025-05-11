@@ -1,24 +1,86 @@
-[gd_scene load_steps=4 format=3 uid="uid://bd6ngxrqw5m8s"]
+[gd_scene load_steps=10 format=3 uid="uid://bd6ngxrqw5m8s"]
 
 [ext_resource type="Script" uid="uid://bqoqpq3lmmemp" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://ixcx7k44x7xt" path="res://player.tscn" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://bid640k2ffjp5" path="res://portal.tscn" id="2_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://b5koi2xpe1qij" path="res://art/background/layers/clouds_1.png" id="2_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://dlb3urti2dp8f" path="res://art/background/layers/sky.png" id="2_4c57u"]
+[ext_resource type="Texture2D" uid="uid://bnmt5vrghj4uc" path="res://art/background/layers/ground_2.png" id="3_lquwl"]
+[ext_resource type="Texture2D" uid="uid://7ix06x3stkqa" path="res://art/background/layers/rocks.png" id="4_efxa6"]
+[ext_resource type="Texture2D" uid="uid://d2w1557sbrgx5" path="res://art/background/layers/clouds_2.png" id="5_dg77c"]
+[ext_resource type="Texture2D" uid="uid://b8cc5c4mtp0uh" path="res://art/background/layers/ground_1.png" id="6_ycdy4"]
+[ext_resource type="Texture2D" uid="uid://co7jk1fhiw1ek" path="res://art/background/layers/ground_3.png" id="8_w48qg"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_h2yge")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.119973, 0.0527629, 0.154325, 1)
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
-[node name="portal" parent="." instance=ExtResource("2_0xm2m")]
-position = Vector2(1758, 540)
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(956, 540)
+texture = ExtResource("2_4c57u")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(960, 540)
+texture = ExtResource("2_1bvp3")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(960, 540)
+texture = ExtResource("4_efxa6")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(960, 540)
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+texture = ExtResource("5_dg77c")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.7, 0.7)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+position = Vector2(960, 540)
+texture = ExtResource("6_ycdy4")
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.8, 0.8)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6"]
+position = Vector2(960, 540)
+texture = ExtResource("3_lquwl")
+
+[node name="ParallaxLayer7" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer7"]
+position = Vector2(960, 540)
+texture = ExtResource("8_w48qg")
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
-position = Vector2(378, 510)
+position = Vector2(114, 1009)
+left_factor = -1
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(846, -469)
+
+[node name="Story" type="Label" parent="Player"]
+offset_top = -897.0
+offset_right = 40.0
+offset_bottom = -874.0
+theme_override_font_sizes/font_size = 30
 
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
