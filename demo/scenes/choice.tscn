@@ -68,6 +68,7 @@ grow_vertical = 2
 label_settings = SubResource("LabelSettings_yhyp7")
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="Red" type="Area2D" parent="."]
 collision_layer = 2
@@ -98,6 +99,7 @@ text = "adsfasdfasdasdfa"
 label_settings = SubResource("LabelSettings_8qvna")
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="Player" parent="." instance=ExtResource("2_yhyp7")]
 position = Vector2(951, 545)
@@ -106,6 +108,7 @@ position = Vector2(951, 545)
 
 [node name="RedPortal" type="Area2D" parent="."]
 position = Vector2(30, 540)
+collision_layer = 2
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RedPortal"]
@@ -122,14 +125,14 @@ shape = SubResource("RectangleShape2D_jt4bu")
 [node name="StoryLabel" type="Label" parent="."]
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 598.0
+offset_left = 61.0
 offset_top = 137.0
-offset_right = -586.0
+offset_right = -58.0
 offset_bottom = 425.0
 grow_horizontal = 2
-text = "asdasd"
 label_settings = SubResource("LabelSettings_jt4bu")
 horizontal_alignment = 1
+autowrap_mode = 3
 
 [node name="AudioStreamReocrd" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamMicrophone_8qvna")

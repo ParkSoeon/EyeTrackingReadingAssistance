@@ -20,7 +20,7 @@ var format := AudioStreamWAV.FORMAT_16_BITS
 func _ready():
 	print("ready")
 	load_story_node(STATE.current_node)
-	get_node("Player").visible = false
+	#get_node("Player").visible = false
 	#var device = AudioServer.get_input_device_list()
 	AudioServer.input_device = AudioServer.get_input_device() # 댓글에 있었네..
 	var idx = AudioServer.get_bus_index("Record")
@@ -34,7 +34,7 @@ func load_story_node(node_id: String):
 		print("err")
 		return
 	# 텍스트 출력
-	story_label.text = data.get("text", "")
+	#story_label.text = data.get("text", "")
 	#print(data.get("text", ""))
 	
 	prompt = data.get("prompt","")
@@ -69,9 +69,10 @@ func change_scene():
 	if STATE.current_node == "end":
 		get_tree().change_scene_to_file("res://scenes/end.tscn")
 	else:
-		get_tree().change_scene_to_file("res://scenes/choice.tscn")
+		get_tree().change_scene_to_file("res://main.tscn")
 
 func _on_red_portal_area_entered(area: Area2D) -> void:
+
 	STATE.current_node = choices[choice].next_scene
 	call_deferred("change_scene")
 
