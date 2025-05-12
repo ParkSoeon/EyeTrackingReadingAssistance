@@ -1,8 +1,15 @@
 extends Node
 
+var access_token := ""
 var current_node = "start"
 var story= []
 var choices = {}
+
+func set_token(token: String) -> void:
+	access_token = token
+
+func get_token() -> String:
+	return access_token
 
 func save_node(node:String):
 	story.append(node)
