@@ -23,6 +23,7 @@ driver/enable_input=true
 [autoload]
 
 STATE="*res://global/state.gd"
+HttpClient="*res://global/http.gd"
 
 [display]
 
