@@ -6,7 +6,7 @@ import openai
 from google import genai
 import os
 
-router = APIRouter()
+router = APIRouter(prefix="/chat", tags=["chat"])
 
 class Message(BaseModel):
     role: str
@@ -50,7 +50,7 @@ def call_gemini(messages):
     # print(response.text)
     return response.text
 
-@router.post("/chat")
+@router.post("/")
 async def chat(prompt: ChatRequest, token: str = Depends(oauth2_scheme)):
     username = decode_token(token)
     provider = prompt.provider.lower()
