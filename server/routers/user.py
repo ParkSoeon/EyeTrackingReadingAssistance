@@ -36,10 +36,10 @@ def decode_token(token: str):
     )
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
-        username = payload.get("sub")
-        if username is None:
+        user_id = payload.get("sub")
+        if user_id is None:
             raise credentials_exception
-        return username
+        return user_id
     except JWTError:
         raise credentials_exception
 
@@ -51,7 +51,7 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = 
         raise HTTPException(status_code=400, detail="Incorrect username or password")
 
     access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
-    token = create_access_token(data={"sub": user.username}, expires_delta=access_token_expires)
+    token = create_access_token(data={"sub": str(user.id)}, expires_delta=access_token_expires)
     return {"access_token": token, "token_type": "bearer"}
 
 # @router.get("/users/me", response_model=UserOut)
