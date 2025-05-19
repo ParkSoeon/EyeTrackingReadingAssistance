@@ -7,6 +7,7 @@ func _ready() -> void:
 	print(STATE.get_nodes())
 	load_story_node(STATE.current_node)
 	load_all_story()
+	HttpClient.post_story(STATE.get_nodes(),STATE.get_choices())
 	pass # Replace with function body.
 
 
