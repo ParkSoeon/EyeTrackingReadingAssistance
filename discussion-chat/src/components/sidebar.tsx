@@ -37,11 +37,11 @@ export function Sidebar({ className }: SidebarProps) {
       </div>
 
       <div className="flex flex-col gap-0 p-4">
-        <h3 className={cn("font-bold", "mb-1 text-m font-medium text-muted-foreground", isCollapsed && "sr-only")}>학습 활동</h3>
+        <h3 className={cn("font-semibold", "mb-1 text-m font-medium text-muted-foreground", isCollapsed && "sr-only")}>학습 활동</h3>
         {/* 메인 페이지 버튼 */}
         <Button variant="ghost" className="w-full justify-start flex items-center gap-2 p-2">
           <MessageCircle className="h-4 w-4 ml-2" />
-          <span>메인 페이지</span>
+          {!isCollapsed && <span>메인 페이지</span>}
         </Button>
         {/* 학습 활동 토글 */}
         <div>
@@ -71,21 +71,20 @@ export function Sidebar({ className }: SidebarProps) {
               ))}
             </div>
           )}
-
         </div>
       </div>
 
       {/* 두 번째 버튼 리스트 */}
       <div className="flex flex-col gap-0 p-4">
-        <h3 className={cn("font-bold", "mb-1 text-m font-medium text-muted-foreground", isCollapsed && "sr-only")}>설정</h3>
+        <h3 className={cn("font-semibold", "mb-1 text-m font-medium text-muted-foreground", isCollapsed && "sr-only")}>설정</h3>
 
         <Button variant="ghost" className="w-full justify-start flex items-center gap-2 p-2">
           <Settings className="h-4 w-4 ml-4" />
-          <span>계정</span>
+          {!isCollapsed && <span>계정</span>}
         </Button>
         <Button variant="ghost" className="w-full justify-start flex items-center gap-2 p-2">
           <Settings className="h-4 w-4 ml-4" />
-          <span>환경설정</span>
+          {!isCollapsed && <span>환경설정</span>}
         </Button>
       </div>
     </div>
