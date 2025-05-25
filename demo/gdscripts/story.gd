@@ -20,7 +20,7 @@ func change_scene():
 	get_tree().change_scene_to_file("res://scenes/choice.tscn")
 	
 func load_story():
-	storyManager.load_story_json("res://story/story.json")
+	storyManager.load_story_json("res://story/%s.json"%STATE.get_story())
 	var data = storyManager.get_node_data(STATE.current_node)
 	if data.is_empty():
 		push_error("존재하지 않는 노드")

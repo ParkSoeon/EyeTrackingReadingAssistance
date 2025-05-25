@@ -28,7 +28,7 @@ func _ready():
 	effect = AudioServer.get_bus_effect(idx, 0)
 
 func load_story_node(node_id: String):
-	storyManager.load_story_json("res://story/story.json")
+	storyManager.load_story_json("res://story/%s.json"%STATE.get_story())
 	var data = storyManager.get_node_data(node_id)
 	if data.is_empty():
 		push_error("존재하지 않는 노드: %s" % node_id)
