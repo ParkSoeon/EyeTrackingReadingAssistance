@@ -1,7 +1,7 @@
 extends Control
 
 @onready var username_field = $VBoxContainer/Name/UsernameField
-@onready var password_field = $VBoxContainer/HBoxContainer/PasswordField
+@onready var password_field = $VBoxContainer/Password/PasswordField
 @onready var message_label = $VBoxContainer/MessageLabel
 @onready var login_button = $VBoxContainer/LoginButton
 
