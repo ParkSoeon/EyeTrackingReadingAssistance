@@ -134,3 +134,5 @@ offset_right = 340.0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 141
 text = "ITDA"
+
+[connection signal="pressed" from="VBoxContainer/LoginButton" to="." method="_on_login_button_pressed"]

@@ -19,7 +19,7 @@ func _token_completed(result, response_code, headers, body, callback:Callable):
 		# TODO 스토리 선택 페이지 구성 후 아래 내용 수정
 		STATE.set_story("test_1")
 		await post_play(STATE.get_story())
-		get_tree().change_scene_to_file("res://scenes/story.tscn")
+		get_tree().change_scene_to_file("res://scenes/main.tscn")
 	else:
 		if typeof(response) == TYPE_DICTIONARY:
 			var detail = response.get("detail","")
