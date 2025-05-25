@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://tcolq6ty463w"]
+[gd_scene load_steps=5 format=3 uid="uid://cwfvae3bq8btu"]
 
-[ext_resource type="Script" uid="uid://qeymcinsi8dy" path="res://scenes/books.gd" id="1_tevrl"]
+[ext_resource type="Script" path="res://scenes/books.gd" id="1_tevrl"]
 [ext_resource type="Texture2D" uid="uid://bynxqwlfemfvq" path="res://icon.svg" id="2_ooaew"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_cqori"]

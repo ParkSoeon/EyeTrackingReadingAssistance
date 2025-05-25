@@ -38,7 +38,9 @@ func load_story_node(node_id: String):
 	#story_label.text = data.get("text", "")
 	#print(data.get("text", ""))
 	
-	prompt = data.get("prompt","")
+	prompt = data.get("text","")
+	get_node("HUD").request(prompt+"이러한 상황이야 앞으로 내가 어떤 선택을 할거야 조언해줘")
+
 	
 	## 선택지 세팅
 	choices = data.get("choices", [])
