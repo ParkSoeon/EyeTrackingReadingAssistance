@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtemahknbmahv"]
+
+[ext_resource type="Script" uid="uid://06dcxbmu5lsw" path="res://scenes/main.gd" id="1_o5qli"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_0wfyh"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o5qli")
+
+[node name="BackGround" type="TextureRect" parent="."]
+modulate = Color(0.713726, 0.858824, 0.988235, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_0wfyh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 80
+
+[node name="Spacer" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 50.39)
+layout_mode = 2
+
+[node name="Greeting" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 101
+text = "👋 환영합니다, 민준님!"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 61
+text = "오늘은 어떤 모험을 시작해볼까요?"
+
+[node name="StoryButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "📚 새 동화 시작하기"
+
+[node name="MypageButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "📖 내 플레이 기록 보기"
+
+[connection signal="pressed" from="VBoxContainer/StoryButton" to="." method="_on_story_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MypageButton" to="." method="_on_mypage_button_pressed"]
