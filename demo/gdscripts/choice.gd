@@ -71,7 +71,7 @@ func change_scene():
 	if STATE.current_node == "end":
 		get_tree().change_scene_to_file("res://scenes/end.tscn")
 	else:
-		get_tree().change_scene_to_file("res://main.tscn")
+		get_tree().change_scene_to_file("res://scenes/story.tscn")
 
 func _on_red_portal_area_entered(area: Area2D) -> void:
 	STATE.current_node = choices[choice].next_scene

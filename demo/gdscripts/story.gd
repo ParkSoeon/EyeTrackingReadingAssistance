@@ -46,7 +46,7 @@ func show_text(lines, interval=2.0):
 	make_portal()
 func make_portal():
 	var position = $Player.position
-	var portal = preload("res://portal.tscn").instantiate()
+	var portal = preload("res://scenes/portal.tscn").instantiate()
 	add_child(portal)
 	
 	portal.global_position = position + Vector2(1920, 0)
