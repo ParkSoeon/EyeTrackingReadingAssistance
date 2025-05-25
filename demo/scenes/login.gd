@@ -1,12 +1,9 @@
 extends Control
 
 @onready var username_field = $VBoxContainer/Name/UsernameField
-@onready var password_field = $VBoxContainer/HBoxContainer/PasswordField
+@onready var password_field = $VBoxContainer/Password/PasswordField
 @onready var message_label = $VBoxContainer/MessageLabel
 @onready var login_button = $VBoxContainer/LoginButton
-
-func _ready():
-	login_button.pressed.connect(_on_login_button_pressed)
 
 func _on_login_button_pressed():
 	var username = username_field.text

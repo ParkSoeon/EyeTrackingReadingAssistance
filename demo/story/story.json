@@ -1,155 +1,121 @@
 {
-    "start": {
-      "text": "헨젤과 그레텔은 부모님의 손에 이끌려 숲 속으로 가고 있어요.",
-      "background": "res://assets/bg_start.png",
-      "character": "res://assets/char_hansel_gretel.png",
-      "prompt":"너는 인터렉티브 동화에서 사용자의 선택을 돕는 친구야\n 헨젤과 그레텔은 부모님의 손에 이끌려 숲 속으로 가고 있어\n 빵조각으로 흔적을 남기는 선택과 나무에 칼집으로 흔적을 남기는 선택이 있어",
-      "choices": [
-      { 
-        "id": "breadcrumbs", 
-        "text": "빵조각을 떨어뜨린다", 
-        "advice": "빵조각을 떨어뜨리는 방법은 길을 기억하는 좋은 방법이지만, 새들이 먹어버릴 수 있습니다. 이를 고려해보세요.",
-        "type": "advice",
-        "action": "breadcrumbs_action"
-      },
-      { 
-        "id": "mark_tree", 
-        "text": "나무에 칼집을 낸다", 
-        "advice": "칼집을 내는 방법은 좋지만, 나무가 너무 많아 도움이 될지 확신할 수 없습니다. 나무를 잘 골라보세요.",
-        "type": "advice",
-        "action": "mark_tree_action"
-      }
-    ],
-      "sound": "res://assets/music_intro.ogg"
-    },
-    "breadcrumbs": {
-    "text": "헨젤은 빵조각을 떨어뜨리며 길을 남기기 시작했어요. 하지만 새들이 먹어버리고 말았죠.",
-    "background": "res://assets/bg_forest.png",
+  "start": {
+    "text": "옛날에 효자로 소문난 착한 나무꾼이 살았어요 하지만 그 나무꾼은 무척이나 가난했답니다.어느날, 나무꾼은 나무를 하기 위해 산으로 갔어요 연못 옆에 있는 나무를 베기 위해 끙차 끙차 도끼질을 했는데 그만 실수로 연못에 풍덩~ 쇠도끼를 빠뜨렸어요.나무꾼은 크게 슬퍼하며 울고있었답니다. 그 때, 도끼를 빠뜨린 연못에서 산신령님이 나타났어요.그리고 나무꾼에 왜 울고 있느냐고 물었답니다.도끼를 연못에 빠뜨렸다는 나무꾼의 말에 산신령님은 연못으로 들어가더니 금도끼를 보여주며 \"이 도끼가 네 것이냐??\" 라고 물었어요",
     "choices": [
-      { 
-        "id": "build_fire", 
-        "text": "불을 피워서 기다린다", 
-        "advice": "불을 피우면 따뜻하게 있을 수 있지만, 새들이 더 빨리 빵조각을 먹을 수도 있어요. 주의하세요.",
-        "type": "advice",
-        "action": "build_fire_action"
+      {
+        "id": "a",
+        "text": "내 것이 맞다고 대답한다",
+        "counterpoint": "거짓말을 하는것은 좋지 않아. 금도끼의 진짜 주인이 슬퍼할거야.",
+        "next_scene": "scene_1a"
       },
-      { 
-        "id": "walk_on", 
-        "text": "길을 따라 계속 걷는다", 
-        "advice": "걷다 보면 결국 새로운 장소를 찾을 수 있을 거예요. 다만, 밤에는 위험할 수 있으니 조심하세요.",
-        "type": "advice",
-        "action": "walk_on_action"
+      {
+        "id": "b",
+        "text": "아니라고 대답한다.",
+        "counterpoint": "저 금도끼를 팔면 일년동안은 풍족히 먹고 지낼 수 있을거야.",
+        "next_scene": "scene_1b"
       }
     ]
-    },
-    "mark_tree": {
-      "text": "헨젤은 나무에 칼집을 내어 길을 찾으려 했어요.",
-      "background": "res://assets/bg_forest.png",
-      "character": "res://assets/char_hansel.png",
-      "choices": [
-        { "id": "build_fire", "text": "불을 피워서 기다린다" },
-        { "id": "walk_on", "text": "길을 따라 계속 걷는다" }
-      ]
-    },
-    "build_fire": {
-      "text": "불을 피우고 기다리지만, 밤은 점점 깊어지고 길을 찾을 수 없어요.",
-      "background": "res://assets/bg_night_forest.png",
-      "choices": [
-        { "id": "find_house", "text": "과자 집을 찾아본다" },
-        { "id": "keep_waiting", "text": "계속 불을 피우고 기다린다" }
-      ]
-    },
-    "walk_on": {
-      "text": "길을 걷다 보니 이상한 과자 집이 나타났어요.",
-      "background": "res://assets/bg_candy_house.png",
-      "choices": [
-        { "id": "enter_house", "text": "집 안으로 들어간다" },
-        { "id": "walk_away", "text": "그냥 지나친다" }
-      ]
-    },
-    "keep_waiting": {
-      "text": "기다리던 중, 결국 날이 밝고 길을 찾기 시작했어요. 그러나, 숲 속에서 길을 잃었어요.",
-      "background": "res://assets/bg_forest_morning.png",
-      "choices": [
-        { "id": "find_house", "text": "과자 집을 찾아본다" },
-        { "id": "go_home", "text": "집으로 돌아간다" }
-      ]
-    },
-    "find_house": {
-      "text": "과자 집이 눈앞에 나타났어요. 집을 살펴보니, 마녀가 살고 있는 곳 같아요.",
-      "background": "res://assets/bg_candy_house.png",
-      "character": "res://assets/char_witch.png",
-      "choices": [
-        { "id": "enter_house", "text": "집 안으로 들어간다" },
-        { "id": "leave_house", "text": "집을 떠난다" }
-      ]
-    },
-    "enter_house": {
-      "text": "마녀가 집에 있었고, 헨젤과 그레텔을 보며 웃고 있었어요. 그녀는 그들을 잡으려 했죠.",
-      "background": "res://assets/bg_witch_house.png",
-      "character": "res://assets/char_witch.png",
-      "choices": [
-        { "id": "escape", "text": "마녀에게서 도망친다" },
-        { "id": "talk", "text": "마녀와 이야기를 나눈다" }
-      ]
-    },
-    "leave_house": {
-      "text": "헨젤과 그레텔은 집을 떠나 숲 속을 계속 걸어가기로 했어요. 하지만 마녀가 그들을 쫓기 시작했어요.",
-      "background": "res://assets/bg_forest.png",
-      "choices": [
-        { "id": "escape", "text": "마녀에게서 도망친다" },
-        { "id": "fight", "text": "마녀와 싸운다" }
-      ]
-    },
-    "escape": {
-      "text": "마녀에게서 도망쳤지만, 길을 잃고 결국 숲 속에서 헤매게 되었어요.",
-      "background": "res://assets/bg_forest_escape.png",
-      "choices": [
-        { "id": "find_parents", "text": "부모님을 찾아간다" },
-        { "id": "explore", "text": "새로운 모험을 떠난다" }
-      ]
-    },
-    "talk": {
-      "text": "마녀는 나쁜 속셈을 품고 있었고, 헨젤을 잡아가려고 했어요.",
-      "background": "res://assets/bg_witch_trap.png",
-      "choices": [
-        { "id": "rescue_hansel", "text": "그레텔이 헨젤을 구한다" },
-        { "id": "wait_for_help", "text": "도움을 기다린다" }
-      ]
-    },
-    "rescue_hansel": {
-      "text": "그레텔은 기지를 발휘해 헨젤을 구출하고, 마녀를 물리쳤어요. 둘은 무사히 탈출했어요.",
-      "background": "res://assets/bg_escape.png",
-      "choices": [
-        { "id": "find_parents", "text": "부모님을 찾아간다" },
-        { "id": "explore", "text": "새로운 모험을 떠난다" }
-      ]
-    },
-    "wait_for_help": {
-      "text": "그레텔은 마녀에게 잡혔고, 헨젤은 혼자서 도망칠 수 없었어요.",
-      "background": "res://assets/bg_witch_captured.png",
-      "choices": [
-        { "id": "end", "text": "끝" }
-      ]
-    },
-    "fight": {
-      "text": "마녀와 싸웠지만, 힘이 부족해 결국 마녀에게 잡히게 되었어요.",
-      "background": "res://assets/bg_witch_captured.png",
-      "choices": [
-        { "id": "end", "text": "끝" }
-      ]
-    },
-    "go_home": {
-      "text": "집으로 돌아가려 했지만, 길을 잃고 결국 숲 속에서 헤매었어요.",
-      "background": "res://assets/bg_forest_lost.png",
-      "choices": [
-        { "id": "find_house", "text": "과자 집을 찾아본다" },
-        { "id": "keep_going", "text": "계속 걷는다" }
-      ]
-    },
-    "end": {
-      "text": "헨젤과 그레텔의 모험은 여기서 끝났어요. 마녀에게 잡혔거나 길을 잃고 끝을 맞이했어요.",
-      "background": "res://assets/bg_end.png",
-      "sound": "res://assets/music_end.ogg"
-    }
+  },
+  "scene_1a": {
+    "text": "산신령은 나무꾼이 거짓말을 한다는걸 눈치채고 화를 냈어요. 산신령은 다시 한번 기회를 주겠다며 다시 연못으로 들어가 은도끼를 가져왔어요. \"이 도끼가 네 것이냐??\" ",
+    "choices": [
+      {
+        "id": "aa",
+        "text": "내 것이 맞다고 대답한다",
+        "counterpoint": "거짓말을 하는것은 좋지 않아. 은도끼의 진짜 주인이 슬퍼할거야.",
+        "next_scene": "scene_1aa"
+      },
+      {
+        "id": "ab",
+        "text": "아니라고 대답한다.",
+        "counterpoint": "은도끼라도 받을 수 있다면 반년은 먹고놀 수 있어",
+        "next_scene": "scene_1ab"
+      }
+    ]
+  },
+  "scene_1aa": {
+    "text": "기회를 2번이나 줬는데도 거짓말을 하는것이냐! 너는 앞으로 도끼질을 하면 벌을 받게될 것이다. 산신령을 사라지고 다음날이 되었어요. ",
+    "choices": [
+      {
+        "id": "aaa",
+        "text": "도끼를 빌려 다시 나무를 하러간다",
+        "counterpoint": "어제 산신령이 벌을 받게 될거랬잖아.",
+        "next_scene": "end"
+      },
+      {
+        "id": "aab",
+        "text": "도끼질을 그만두고 다른 일을 찾아본다.",
+        "counterpoint": "평생 도끼질만 했는데 내가 뭘 할 수 있겠어?",
+        "next_scene": "end"
+      }
+    ]
+  },
+  "scene_1ab": {
+    "text": "이번엔 정직하게 말했구나. 쇠도끼는 돌려주마.나무꾼은 쇠도끼를 돌려받았어요.다음날 나무꾼은 고민에 빠졌어요",
+    "choices": [
+      {
+        "id": "aba",
+        "text": "도끼를 다시 연못에 빠뜨려본다.",
+        "counterpoint": "산신령이 화가날 수도 있고 도끼를 잃어버리게 될 수도 있어.",
+        "next_scene": "end"
+      },
+      {
+        "id": "abb",
+        "text": "연못에서의 일은 잊고 성실히 산다.",
+        "counterpoint": "연못에 다시 가봐. 금도끼를 얻게 될 수도 있잖아.",
+        "next_scene": "end"
+      }
+    ]
+  },
+  "scene_1b": {
+    "text": "산신령은 다시 연못으로 들어가더니 이번엔 은도끼를 들고 물었어요.이 도끼가 너의 것이냐?",
+    "choices": [
+      {
+        "id": "ba",
+        "text": "아니라고 대답한다.",
+        "counterpoint": "다른 도끼를 가질 수 있다면 부자가 될 수 있을거야야",
+        "next_scene": "scene_1ba"
+      },
+      {
+        "id": "bb",
+        "text": "내 것이 맞다고 대답한다",
+        "counterpoint": "거짓말을 하는것은 좋지 않아. 은도끼의 진짜 주인이 슬퍼할거야.",
+        "next_scene": "scene_1bb"
+      }
+    ]
+  },
+  "scene_1ba": {
+    "text": "산신령은 정직한 아이라고 기뻐하며 금도끼 은도끼 쇠도끼를 모두 주었어요. 나무꾼은 금도끼와 은도끼를 받으면서 기뻐했지만, 과연 이 도끼들을 어떻게 사용할지 고민하기 시작했습니다. 나무꾼은 가난한 사람들을 도와주기로 결심했지만, 그가 먼저 생각한 것은 자신의 삶을 더 나아지게 하는 것이었습니다.",
+    "choices": [
+      {
+        "id": "baa",
+        "text": "금도끼와 은도끼를 팔아 더 나은 삶을 위해 돈을 만드세요.",
+        "counterpoint": "물질적인 풍요를 추구하지만, 나무꾼의 정직함과 선한 마음이 사라질 위험이 있습니다. 돈을 얻더라도 진정한 행복과 만족은 얻기 어려울 수 있습니다.",
+        "next_scene": "end"
+      },
+      {
+        "id": "bab",
+        "text": "금도끼와 은도끼로 가난한 사람들에게 쌀을 나누어 주세요.",
+        "counterpoint": "정직한 선택이지만, 나무꾼이 자신의 필요를 먼저 충족시키지 않으면 자신의 삶이 어려워질 수 있습니다. 자칫 자신의 미래를 불안정하게 만들 위험이 있습니다.",
+        "next_scene": "end"
+      }
+    ]
+  },
+  "scene_1bb": {
+    "text": "거짓말을 했구나..실망한 산신령은 사라졌어요.나무꾼은 자신의 잘못을 깨달았지만, 산신령님의 말이 마음에 걸렸어요. 그렇게 그는 다시 한번 용기를 내어 산신령님께 진심으로 사과하기로 결심했어요.",
+    "choices": [
+      {
+        "id": "bba",
+        "text": "산신령님께 솔직하게 자신의 마음을 전하며 사과한다.",
+        "counterpoint": "하지만, 만약 산신령님이 그의 사과를 받아주지 않는다면 나무꾼은 더욱 절망하게 될 수 있다.",
+        "next_scene": "end"
+      },
+      {
+        "id": "bbb",
+        "text": "그냥 포기하고 돌아가기로 한다.",
+        "counterpoint": "포기하게 되면 자신의 잘못을 반성할 기회를 잃고, 앞으로도 같은 실수를 반복할 가능성이 높아진다.",
+        "next_scene": "end"
+      }
+    ]
   }
+}

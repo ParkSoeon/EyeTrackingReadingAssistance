@@ -8,6 +8,7 @@
 script = ExtResource("1_mwn6m")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.713726, 0.858824, 0.988235, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -15,12 +16,49 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("CanvasTexture_3d26k")
 
+[node name="Label" type="Label" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 27.0
+offset_bottom = 153.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 91
+text = "🎉 이야기의 끝! 수고했어요, !"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="StroyLabel" type="Label" parent="."]
 modulate = Color(0, 0, 0, 1)
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 213.0
+offset_top = 190.0
+offset_bottom = 403.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 50
+text = "결말"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="HomeButton" type="Button" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -448.0
+offset_right = 817.0
+grow_vertical = 0
+text = "홈으로"
+
+[node name="AnalyzeButton" type="Button" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -729.0
+offset_top = -448.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "분석"
+
+[connection signal="pressed" from="HomeButton" to="." method="_on_home_button_pressed"]
+[connection signal="pressed" from="AnalyzeButton" to="." method="_on_analyze_button_pressed"]

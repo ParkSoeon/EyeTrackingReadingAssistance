@@ -20,7 +20,7 @@ func change_scene():
 	get_tree().change_scene_to_file("res://scenes/choice.tscn")
 	
 func load_story():
-	storyManager.load_story_json("res://story/story.json")
+	storyManager.load_story_json("res://story/%s.json"%STATE.get_story())
 	var data = storyManager.get_node_data(STATE.current_node)
 	if data.is_empty():
 		push_error("존재하지 않는 노드")
@@ -46,7 +46,7 @@ func show_text(lines, interval=2.0):
 	make_portal()
 func make_portal():
 	var position = $Player.position
-	var portal = preload("res://portal.tscn").instantiate()
+	var portal = preload("res://scenes/portal.tscn").instantiate()
 	add_child(portal)
 	
 	portal.global_position = position + Vector2(1920, 0)
