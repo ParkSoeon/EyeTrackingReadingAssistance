@@ -6,7 +6,7 @@ extends Control
 
 
 func _on_story_button_pressed() -> void:
-		get_tree().change_scene_to_file("res://scenes/story.tscn")
+		get_tree().change_scene_to_file("res://scenes/books.tscn")
 
 
 func _on_mypage_button_pressed() -> void:
