@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bd6ngxrqw5m8s"]
 
-[ext_resource type="Script" uid="uid://bqoqpq3lmmemp" path="res://gdscripts/story.gd" id="1_he5lq"]
+[ext_resource type="Script" path="res://gdscripts/story.gd" id="1_he5lq"]
 [ext_resource type="Texture2D" uid="uid://dlb3urti2dp8f" path="res://art/background/layers/sky.png" id="2_oiacb"]
 [ext_resource type="Texture2D" uid="uid://b5koi2xpe1qij" path="res://art/background/layers/clouds_1.png" id="3_1c6lq"]
 [ext_resource type="Texture2D" uid="uid://7ix06x3stkqa" path="res://art/background/layers/rocks.png" id="4_q8x5h"]
@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b8cc5c4mtp0uh" path="res://art/background/layers/ground_1.png" id="6_l2ljf"]
 [ext_resource type="Texture2D" uid="uid://bnmt5vrghj4uc" path="res://art/background/layers/ground_2.png" id="7_4c162"]
 [ext_resource type="Texture2D" uid="uid://co7jk1fhiw1ek" path="res://art/background/layers/ground_3.png" id="8_b7c87"]
-[ext_resource type="PackedScene" uid="uid://ixcx7k44x7xt" path="res://scenes/player.tscn" id="9_5bm1s"]
+[ext_resource type="PackedScene" uid="uid://dfl0lomf6t0kl" path="res://scenes/player.tscn" id="9_5bm1s"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_he5lq")

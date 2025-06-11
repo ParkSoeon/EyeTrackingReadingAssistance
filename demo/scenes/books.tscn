@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwfvae3bq8btu"]
+[gd_scene load_steps=5 format=3 uid="uid://bxhmf7ktjy20b"]
 
 [ext_resource type="Script" path="res://scenes/books.gd" id="1_tevrl"]
 [ext_resource type="Texture2D" uid="uid://bynxqwlfemfvq" path="res://icon.svg" id="2_ooaew"]
