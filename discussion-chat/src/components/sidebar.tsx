@@ -37,13 +37,13 @@ const Sidebar = () => {
       {isExpanded && !isCollapsed && (
         <div className="bg-white rounded-md shadow p-3 mx-4 my-2 flex items-center gap-3">
           <img
-            src="https://github.com/shadcn.png"
+            src="https://cdn-icons-png.flaticon.com/512/5904/5904059.png"
             alt="User avatar"
             className="w-10 h-10 rounded-full object-cover"
           />
           <div className="leading-tight">
-            <p className="text-sm font-semibold">John Doe</p>
-            <p className="text-xs text-gray-500">john.doe@example.com</p>
+            <p className="text-sm font-semibold">김가천</p>
+            <p className="text-xs text-gray-500">여 / 8세</p>
           </div>
         </div>
       )}
@@ -54,17 +54,17 @@ const Sidebar = () => {
       {isExpanded && !isCollapsed && (
         <div className="px-4 pt-4 pb-2">
           <p className="text-sm font-semibold text-gray-700 mb-2">학습 활동</p>
-          <Button variant="ghost" className="h-8 w-full justify-start text-sm">
-            <BookOpen className="h-4 w-4 mr-2" />
-            책 읽기
+          <Button variant="ghost" className="h-8 w-full justify-start text-sm flex items-center">
+        <BookOpen className="h-4 w-10 mr-2" />
+        <span>책 읽기</span>
           </Button>
-          <Button variant="ghost" className="h-8 w-full justify-start text-sm">
-            <BarChart3 className="h-4 w-4 mr-2" />
-            분석
+          <Button variant="ghost" className="h-8 w-full justify-start text-sm flex items-center">
+        <BarChart3 className="h-4 w-10 mr-2" />
+        <span>분석</span>
           </Button>
-          <Button variant="ghost" className="h-8 w-full justify-start text-sm">
-            <FileText className="h-4 w-4 mr-2" />
-            토론
+          <Button variant="ghost" className="h-8 w-full justify-start text-sm flex items-center">
+        <FileText className="h-4 w-10 mr-2" />
+        <span>토론</span>
           </Button>
         </div>
       )}
@@ -73,12 +73,12 @@ const Sidebar = () => {
       {isExpanded && !isCollapsed && (
         <div className="px-4 pt-4 pb-2">
           <p className="text-sm font-semibold text-gray-700 mb-2">설정</p>
-          <Button variant="ghost" className="h-8 w-full justify-start text-sm">
-            <User className="h-4 w-4 mr-2" />
+          <Button variant="ghost" className="h-8 w-full justify-start text-sm flex items-center">
+            <User className="h-4 w-10 mr-2" />
             계정
           </Button>
-          <Button variant="ghost" className="h-8 w-full justify-start text-sm">
-            <SlidersHorizontal className="h-4 w-4 mr-2" />
+          <Button variant="ghost" className="h-8 w-full justify-start text-sm flex items-center">
+            <SlidersHorizontal className="h-4 w-10 mr-2" />
             환경 설정
           </Button>
         </div>
