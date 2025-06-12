@@ -24,33 +24,35 @@ export function Chat() {
   const [inputValue, setInputValue] = useState("")
 
   const handleSendMessage = () => {
-    if (!inputValue.trim()) return
-
-    // Add user message
+    if (!inputValue.trim()) return;
+  
+    const messageContent = inputValue.trim();
     const userMessage: Message = {
       id: Date.now().toString(),
-      content: inputValue,
+      content: messageContent,
       sender: "user",
       timestamp: new Date(),
-    }
-
-    setMessages((prev) => [...prev, userMessage])
-    setInputValue("")
-
-    // Simulate bot response after a short delay
+    };
+  
+    setMessages((prev) => [...prev, userMessage]);
+    setInputValue("");
+  
     setTimeout(() => {
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
-        content: `I received your message: "${inputValue}"`,
+        content: `I received your message: "${messageContent}"`,
         sender: "bot",
         timestamp: new Date(),
-      }
-      setMessages((prev) => [...prev, botMessage])
-    }, 1000)
-  }
+      };
+      setMessages((prev) => [...prev, botMessage]);
+    }, 1000);
+  };
+
+  const [isComposing, setIsComposing] = useState(false)
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter" && !e.shiftKey) {
+    if (e.key === "Enter" && !e.shiftKey && !isComposing) {
+      // Prevent default behavior of Enter key to avoid adding a new line
       e.preventDefault()
       handleSendMessage()
     }
@@ -68,6 +70,8 @@ export function Chat() {
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             onKeyDown={handleKeyDown}
+            onCompositionStart={() => setIsComposing(true)}
+            onCompositionEnd={() => setIsComposing(false)}
             className="flex-1"
           />
           <Button onClick={handleSendMessage} variant="ghost" disabled={!inputValue.trim()}>
