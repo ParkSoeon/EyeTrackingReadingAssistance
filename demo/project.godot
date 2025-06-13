@@ -24,6 +24,7 @@ driver/enable_input=true
 
 STATE="*res://global/state.gd"
 HttpClient="*res://global/http.gd"
+SceneTransitionLayer="*res://scenes/scene_transition_layer.tscn"
 
 [display]
 
