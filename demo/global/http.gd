@@ -10,6 +10,7 @@ func post_token(username:String, password:String, callback:Callable):
 	add_child(http_request)
 	http_request.request(url+"/users/token/", headers, HTTPClient.METHOD_POST, body)
 	http_request.request_completed.connect(_token_completed.bind(callback))
+	STATE.set_user(username)
 	
 func _token_completed(result, response_code, headers, body, callback:Callable):
 	var response = JSON.parse_string(body.get_string_from_utf8())

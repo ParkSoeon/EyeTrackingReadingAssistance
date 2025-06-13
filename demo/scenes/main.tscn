@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://co7eig8rwnll0"]
 
-[ext_resource type="Script" path="res://scenes/main.gd" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://06dcxbmu5lsw" path="res://scenes/main.gd" id="1_o5qli"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_0wfyh"]
 
@@ -39,7 +39,7 @@ layout_mode = 2
 [node name="Greeting" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 101
-text = "👋 환영합니다, 민준님!"
+text = "👋 환영합니다, "
 horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer"]

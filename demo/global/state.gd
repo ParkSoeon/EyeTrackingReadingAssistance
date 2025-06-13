@@ -5,8 +5,15 @@ var current_node = "start"
 var story= []
 var choices = {}
 var temp = [] # 선택 임시 보관 테스트 용도
+var user_name = "temp"
 var story_id =""
 var play_id = ""
+
+func set_user(user: String) -> void:
+	user_name = user
+
+func get_user() -> String:
+	return user_name
 
 func set_token(token: String) -> void:
 	access_token = token
