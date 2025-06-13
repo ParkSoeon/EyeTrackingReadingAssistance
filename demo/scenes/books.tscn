@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxhmf7ktjy20b"]
+[gd_scene load_steps=6 format=3 uid="uid://bxhmf7ktjy20b"]
 
 [ext_resource type="Script" uid="uid://qeymcinsi8dy" path="res://gdscripts/books.gd" id="1_tevrl"]
-[ext_resource type="Texture2D" uid="uid://bynxqwlfemfvq" path="res://icon.svg" id="2_ooaew"]
+[ext_resource type="Texture2D" uid="uid://d25wox30p4iiq" path="res://art/book.png" id="2_tevrl"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_cqori"]
 
@@ -11,6 +11,8 @@ corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tevrl"]
 
 [node name="Books" type="Control"]
 layout_mode = 3
@@ -67,8 +69,8 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -68.0
-offset_bottom = 68.0
+offset_top = -158.0
+offset_bottom = 410.0
 grow_horizontal = 2
 grow_vertical = 2
 vertical_scroll_mode = 0
@@ -76,9 +78,31 @@ vertical_scroll_mode = 0
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/ScrollContainer"]
 layout_mode = 2
 theme_override_constants/separation = 320
+alignment = 1
 
-[node name="TextureButton" type="TextureButton" parent="Panel/ScrollContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
-texture_normal = ExtResource("2_ooaew")
 
-[connection signal="pressed" from="Panel/ScrollContainer/HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[node name="Panel" type="Panel" parent="Panel/ScrollContainer/HBoxContainer/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_tevrl")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/ScrollContainer/HBoxContainer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_tevrl")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 51
+text = "text"
+horizontal_alignment = 1
