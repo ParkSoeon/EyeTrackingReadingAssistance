@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bd6ngxrqw5m8s"]
 
-[ext_resource type="Script" path="res://gdscripts/story.gd" id="1_he5lq"]
+[ext_resource type="Script" uid="uid://bqoqpq3lmmemp" path="res://gdscripts/story.gd" id="1_he5lq"]
 [ext_resource type="Texture2D" uid="uid://dlb3urti2dp8f" path="res://art/background/layers/sky.png" id="2_oiacb"]
 [ext_resource type="Texture2D" uid="uid://b5koi2xpe1qij" path="res://art/background/layers/clouds_1.png" id="3_1c6lq"]
 [ext_resource type="Texture2D" uid="uid://7ix06x3stkqa" path="res://art/background/layers/rocks.png" id="4_q8x5h"]

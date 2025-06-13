@@ -12,6 +12,7 @@ func load_story_json(path: String):
 			story_data = result
 		else:
 			push_error("JSON 형식 오류")
+			DirAccess.remove_absolute(path)
 		
 		file.close()
 	else:

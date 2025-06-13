@@ -6,6 +6,7 @@ extends Control
 @onready var login_button = $VBoxContainer/LoginButton
 
 func _on_login_button_pressed():
+	print("User data path: ", OS.get_user_data_dir())
 	var username = username_field.text
 	var password = password_field.text
 
