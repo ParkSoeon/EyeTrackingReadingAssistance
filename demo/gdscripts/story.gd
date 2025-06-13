@@ -20,11 +20,11 @@ func change_scene():
 	get_tree().change_scene_to_file("res://scenes/choice.tscn")
 	
 func load_story():
-	storyManager.load_story_json("res://story/%s.json"%STATE.get_story())
+	storyManager.load_story_json("user://stories/%s.json"%STATE.get_story())
 	var data = storyManager.get_node_data(STATE.current_node)
 	if data.is_empty():
-		push_error("존재하지 않는 노드")
-		print("err")
+		push_error("data is empty")
+		show_error("data is empty")
 		return
 	var text = data.text
 	text = text.replace("\n", ".").replace(",", ".")
@@ -52,3 +52,17 @@ func make_portal():
 	portal.global_position = position + Vector2(1920, 0)
 	portal.visible = true
 	portal.sleeping = false
+
+func show_error(message: String):
+	var dialog = AcceptDialog.new()
+	dialog.dialog_text = message
+	dialog.name = "ErrorDialog"
+
+	dialog.confirmed.connect(Callable(self, "_on_error_confirmed").bind(dialog))
+
+	add_child(dialog)
+	dialog.popup_centered()
+	
+func _on_error_confirmed(dialog):
+	dialog.queue_free()
+	await SceneTransitionLayer.change_scene_with_fade("res://scenes/books.tscn")

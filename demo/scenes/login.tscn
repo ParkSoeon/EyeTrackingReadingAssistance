@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dach13qy4uuxl"]
 
-[ext_resource type="Script" uid="uid://c3fjgh71i2a7r" path="res://scenes/login.gd" id="1_pymad"]
+[ext_resource type="Script" uid="uid://c3fjgh71i2a7r" path="res://gdscripts/login.gd" id="1_pymad"]
 [ext_resource type="Texture2D" uid="uid://dm7lm8qfv24ee" path="res://art/login/login.jpeg" id="2_nw41r"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_nw41r"]

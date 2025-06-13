@@ -53,17 +53,19 @@ func _process(delta):
 
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
+		$AnimatedSprite2D.animation = "walk"
 		$AnimatedSprite2D.play()
 	else:
 		$AnimatedSprite2D.stop()
+		$AnimatedSprite2D.animation = "idle"
 		
 	position += velocity * delta
 	#position = position.clamp(Vector2.ZERO, screen_size)
 	
 	if velocity.x < 0:
-		$AnimatedSprite2D.flip_h = true
-	else:
 		$AnimatedSprite2D.flip_h = false
+	else:
+		$AnimatedSprite2D.flip_h = true
 
 
 #func _on_body_entered(_body):
@@ -106,6 +108,6 @@ func move(cmd, delta):
 	#position = position.clamp(Vector2.ZERO, screen_size)
 	
 	if velocity.x < 0:
-		$AnimatedSprite2D.flip_h = true
-	else:
 		$AnimatedSprite2D.flip_h = false
+	else:
+		$AnimatedSprite2D.flip_h = true

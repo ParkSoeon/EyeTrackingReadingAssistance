@@ -10,6 +10,7 @@ func post_token(username:String, password:String, callback:Callable):
 	add_child(http_request)
 	http_request.request(url+"/users/token/", headers, HTTPClient.METHOD_POST, body)
 	http_request.request_completed.connect(_token_completed.bind(callback))
+	STATE.set_user(username)
 	
 func _token_completed(result, response_code, headers, body, callback:Callable):
 	var response = JSON.parse_string(body.get_string_from_utf8())
@@ -107,3 +108,56 @@ func _story_completed(result, response_code, headers, body):
 		print(response)
 		if typeof(response) == TYPE_DICTIONARY:
 			pass
+			
+func fetch_story_ids(callback:Callable):
+	var http_request = HTTPRequest.new()
+	add_child(http_request)
+	http_request.request_completed.connect(self._on_fetch_story_ids_completed.bind(callback))
+
+	var error = http_request.request(url+"/stories/")
+	if error != OK:
+		push_error("An error occurred while requesting story IDs.")
+		
+func _on_fetch_story_ids_completed(result, response_code, headers, body, callback:Callable):
+	if response_code == 200:
+		var response_text = body.get_string_from_utf8()
+		var json = JSON.parse_string(response_text)
+		
+		var stories_list = []
+		var story_ids = []
+
+		if json != null:
+			stories_list = json
+			story_ids.clear()
+			
+			for story in stories_list:
+				if story.has("story_id"):
+					story_ids.append(story["story_id"])
+					
+			callback.call(story_ids)
+		else:
+			push_error("Failed to parse JSON from server.")
+	else:
+		push_error("Failed to fetch stories. Response code: %d" % response_code)
+
+func download_story(story_id: String, callback:Callable):
+	var http_request = HTTPRequest.new()
+	add_child(http_request)
+	var headers = ["Authorization: Bearer %s" % STATE.access_token,
+					"Content-Type: application/json"]
+	http_request.request_completed.connect(self._on_story_downloaded.bind(story_id, callback))
+	var error = http_request.request(url+'/stories/'+story_id, headers)
+	if error != OK:
+		print("Error requesting story JSON.")
+
+func _on_story_downloaded(result, response_code, headers, body, story_id, callback:Callable):
+	if response_code == 200:
+		var json_text = body.get_string_from_utf8()
+		DirAccess.make_dir_recursive_absolute("user://stories")
+		var file = FileAccess.open("user://stories/%s.json" % story_id, FileAccess.WRITE)
+		if file:
+			file.store_string(json_text)
+			file.close()
+	else:
+		print("Story download failed:", response_code)
+		callback.call("Story download failed:%d"%response_code)

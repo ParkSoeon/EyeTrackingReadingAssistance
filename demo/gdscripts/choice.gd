@@ -28,7 +28,7 @@ func _ready():
 	effect = AudioServer.get_bus_effect(idx, 0)
 
 func load_story_node(node_id: String):
-	storyManager.load_story_json("res://story/%s.json"%STATE.get_story())
+	storyManager.load_story_json("user://stories/%s.json"%STATE.get_story())
 	var data = storyManager.get_node_data(node_id)
 	if data.is_empty():
 		push_error("존재하지 않는 노드: %s" % node_id)
@@ -37,7 +37,7 @@ func load_story_node(node_id: String):
 	# 텍스트 출력
 	#story_label.text = data.get("text", "")
 	#print(data.get("text", ""))
-	
+	get_node("Player").factor = 0
 	prompt = data.get("text","")
 	get_node("HUD").request(prompt+"이러한 상황이야 앞으로 내가 어떤 선택을 할거야 조언해줘")
 
