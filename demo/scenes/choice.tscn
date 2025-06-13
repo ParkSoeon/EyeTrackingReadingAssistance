@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://d37onjpgkukg5"]
+[gd_scene load_steps=14 format=3 uid="uid://d37onjpgkukg5"]
 
 [ext_resource type="Script" uid="uid://c34r42njcgddk" path="res://gdscripts/choice.gd" id="1_ycxmd"]
+[ext_resource type="Texture2D" uid="uid://pe44pt1pshfh" path="res://art/background/forest.png" id="2_jt4bu"]
 [ext_resource type="PackedScene" uid="uid://dfl0lomf6t0kl" path="res://scenes/player.tscn" id="2_yhyp7"]
 [ext_resource type="PackedScene" uid="uid://bxxis1q30rma1" path="res://scenes/hud.tscn" id="3_8qvna"]
 
@@ -37,6 +38,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_jt4bu")
 metadata/_edit_group_ = true
 
 [node name="Blue" type="Area2D" parent="."]
