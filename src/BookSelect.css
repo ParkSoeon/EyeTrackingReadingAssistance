@@ -1,0 +1,62 @@
+/* BookSelect.css */
+.page-background {
+    width: 100vw;
+    height: 100vh;
+    background-color: #B3E0FF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .book-container {
+    background-color: white;
+    border-radius: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 3rem 2rem;
+    width: 1000px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .book-title {
+    font-family: 'Jua', sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #7EC6F7;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .book-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    width: 100%;
+    justify-items: center;
+  }
+  
+  .book-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .book-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 1rem;
+    object-fit: cover;
+    margin-bottom: 0.75rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .book-label {
+    font-family: 'Jua', sans-serif;
+    font-size: 1rem;
+    color: #4B5563;
+    text-align: center;
+    white-space: nowrap;
+  }/* BookSelect 전용 스타일 (필요시 추가) */ 
