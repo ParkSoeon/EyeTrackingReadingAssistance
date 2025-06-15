@@ -10,6 +10,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import * as React from "react"
 import { cn } from "@/lib/utils"
 
+import { Link } from "react-router-dom" 
 
 const Sidebar = () => {
   const [isExpanded, setIsExpanded] = useState(true)
@@ -54,18 +55,30 @@ const Sidebar = () => {
       {isExpanded && !isCollapsed && (
         <div className="px-4 pt-4 pb-2">
           <p className="text-sm font-semibold text-gray-700 mb-2">학습 활동</p>
-          <Button variant="ghost" className="h-8 w-full justify-start text-sm flex items-center">
-        <BookOpen className="h-4 w-10 mr-2" />
-        <span>책 읽기</span>
-          </Button>
-          <Button variant="ghost" className="h-8 w-full justify-start text-sm flex items-center">
-        <BarChart3 className="h-4 w-10 mr-2" />
-        <span>분석</span>
-          </Button>
-          <Button variant="ghost" className="h-8 w-full justify-start text-sm flex items-center">
-        <FileText className="h-4 w-10 mr-2" />
-        <span>토론</span>
-          </Button>
+          <div>
+
+            <Link to="/book">
+              <Button variant="ghost" className="h-8 w-full justify-start text-sm flex items-center">
+                <BookOpen className="h-4 w-10 mr-2" />
+                <span>책 읽기</span>
+              </Button>
+            </Link>
+
+            <Link to="/report">
+              <Button variant="ghost" className="h-8 w-full justify-start text-sm flex items-center">
+                <BarChart3 className="h-4 w-10 mr-2" />
+                <span>분석</span>
+              </Button>
+            </Link>
+
+            <Link to="/chat">
+              <Button variant="ghost" className="h-8 w-full justify-start text-sm flex items-center">
+                <FileText className="h-4 w-10 mr-2" />
+                <span>토론</span>
+              </Button>
+            </Link>
+
+          </div>
         </div>
       )}
 
