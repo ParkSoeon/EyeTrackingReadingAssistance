@@ -32,26 +32,44 @@ function MainScreen() {
       <div className="z-20 flex flex-col items-center justify-center w-full max-w-[700px] mx-auto mb-32">
         <div className="font-jua text-white text-[2.2rem] font-extrabold mb-2 drop-shadow-md tracking-tight" style={{color: '#fff'}}>아동용 독서지원 플랫폼</div>
         <div className="font-jua text-white font-extrabold mb-8 drop-shadow-lg tracking-widest leading-none" style={{ color: '#fff', fontSize: '8vw', lineHeight: 1, letterSpacing: '0.04em', textShadow: '0 4px 16px rgba(0,0,0,0.10)' }}>ITDA</div>
-        <button
-          className="font-jua text-[#7EC6F7] font-extrabold text-[2rem] flex items-center justify-center mx-auto"
-          style={{
-            width: '340px',
-            height: '64px',
-            borderRadius: '40px',
-            background: 'white',
-            letterSpacing: '0.02em',
-            boxShadow: '0 2px 12px 0 rgba(126,198,247,0.10)',
-            whiteSpace: 'nowrap',
-            outline: 'none',
-            border: 'none',
-          }}
-          onClick={() => navigate('/books')}
-          tabIndex={0}
-          onFocus={e => e.target.style.boxShadow = '0 2px 12px 0 rgba(126,198,247,0.10)'}
-          onBlur={e => e.target.style.boxShadow = '0 2px 12px 0 rgba(126,198,247,0.10)'}
-        >
-          시작하기
-        </button>
+        <div className="flex gap-4">
+          <button
+            className="font-jua text-[#7EC6F7] font-bold text-lg flex items-center justify-center"
+            style={{
+              width: '200px',
+              height: '48px',
+              borderRadius: '32px',
+              background: 'white',
+              letterSpacing: '0.02em',
+              boxShadow: '0 2px 12px 0 rgba(126,198,247,0.10)',
+              whiteSpace: 'nowrap',
+              outline: 'none',
+              border: 'none',
+            }}
+            onClick={() => navigate('/login')}
+            tabIndex={0}
+            onFocus={e => e.target.style.boxShadow = '0 2px 12px 0 rgba(126,198,247,0.10)'}
+            onBlur={e => e.target.style.boxShadow = '0 2px 12px 0 rgba(126,198,247,0.10)'}
+          >
+            로그인
+          </button>
+          <button
+            className="font-jua text-[#7EC6F7] font-bold text-lg flex items-center justify-center"
+            style={{
+              width: '200px',
+              height: '48px',
+              borderRadius: '32px',
+              background: 'white',
+              letterSpacing: '0.02em',
+              boxShadow: '0 2px 12px 0 rgba(126,198,247,0.10)',
+              outline: 'none',
+              border: 'none',
+            }}
+            onClick={() => navigate('/signup')}
+          >
+            회원가입
+          </button>
+        </div>
       </div>
       {/* 하단 양쪽 끝 나무 그룹 */}
       <div className="fixed bottom-0 left-0 w-full flex flex-row justify-between items-end z-10 pointer-events-none">

@@ -1,8 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import MainScreen from './MainScreen';
-import BookSelect from './BookSelect';
+import Login from './components/Login.jsx';
 import SelectMode from './SelectMode';
+import BookSelect from './BookSelect';
+import Signup from './components/Signup.jsx';
 
 const treeSrc = '/logo/tree.png';
 
@@ -31,8 +33,11 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<MainScreen />} />
-        <Route path="/books" element={<BookSelect />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/select-mode" element={<SelectMode />} />
+        <Route path="/books" element={<BookSelect />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
   );

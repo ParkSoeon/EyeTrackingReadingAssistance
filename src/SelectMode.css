@@ -82,6 +82,3 @@
   background: radial-gradient(circle at 50% 60%, #f9a6bb 0%, #fe89ba 70%, #ff7eb3 100%);
   color: #fff;
 }
-.mode-btn:active {
-  filter: brightness(0.95);
-} 

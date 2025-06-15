@@ -1,0 +1,205 @@
+.signup-form-2col {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.signup-form-cols {
+  display: flex;
+  flex-direction: row;
+  gap: 2.5rem;
+  width: 100%;
+  justify-content: flex-start;
+  margin-bottom: 2.8rem;
+}
+
+.signup-col-left, .signup-col-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.signup-col-left {
+  flex: 1 1 0;
+  min-width: 220px;
+}
+.signup-col-right {
+  flex: none;
+  width: 350px;
+  min-width: 350px;
+  max-width: 350px;
+}
+
+.signup-form-2col .form-group {
+  width: 350px;
+  max-width: 350px;
+  min-width: 120px;
+  box-sizing: border-box;
+}
+
+.gender-group {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: flex-start;
+}
+.gender-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin: 0;
+}
+
+.signup-form-2col .gender-group {
+  width: 100%;
+  display: flex;
+  gap: 1.2rem;
+  justify-content: flex-start;
+}
+
+.gender-toggle-group {
+  display: flex;
+  gap: 1rem;
+  width: 350px;
+  justify-content: space-between;
+  align-items: center;
+}
+.gender-toggle-btn {
+  flex: 1;
+  width: auto;
+  padding: 0.7rem 0.5rem;
+  border-radius: 12px;
+  border: 2px solid #7EC6F7;
+  background: #fff;
+  color: #7EC6F7;
+  font-family: 'Jua', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border 0.15s;
+}
+.gender-toggle-btn.selected {
+  background: linear-gradient(135deg, #7EC6F7 100%);
+  color: #fff;
+  border: 2px solid #4EA8FF;
+}
+
+.signup-form-vertical {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+.signup-form-vertical .form-group {
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+.signup-form-vertical .form-group input,
+.signup-form-vertical .form-group select {
+  width: 350px;
+  box-sizing: border-box;
+}
+.signup-form-vertical .gender-toggle-group {
+  width: 350px;
+  display: flex;
+  gap: 1.2rem;
+  justify-content: flex-start;
+}
+
+.signup-form-2row {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+.signup-row {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  width: 100%;
+  justify-content: flex-start;
+  margin-bottom: 1.2rem;
+}
+.signup-form-2row .form-group {
+  width: 350px;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+.signup-form-2row .form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #4B5563;
+  font-family: 'Jua', sans-serif;
+  font-size: 1.1rem;
+}
+.signup-form-2row .form-group input,
+.signup-form-2row .form-group select {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #e1e1e1;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: 'Jua', sans-serif;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+.signup-form-2row .gender-toggle-group {
+  width: 350px;
+  display: flex;
+  gap: 1.2rem;
+  justify-content: flex-start;
+}
+.signup-form-2row .form-group.signup-btn-group {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  width: 350px;
+}
+
+.gender-toggle-group-full {
+  width: 350px;
+  margin: 0 auto;
+}
+
+.login-button {
+  width: 350px;
+  padding: 0.7rem;
+  background: linear-gradient(135deg, #7EC6F7 0%, #4EA8FF 100%);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-family: 'Jua', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-top: 24px;
+}
+
+.login-button.full-width-btn {
+  width: 350px;
+  max-width: 350px;
+  min-width: 350px;
+  margin-left: 0;
+  margin-top: 1.5rem;
+}
+
+.login-button.full-width-signup-button {
+  width: 732px;
+  max-width: 732px;
+  min-width: 350px;
+  margin: 2rem auto 0 auto;
+  display: block;
+} 
