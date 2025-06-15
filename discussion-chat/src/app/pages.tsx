@@ -1,14 +1,22 @@
 // /* src/app/pages.tsx */
 
-import { Chat } from "@/components/chat"
-import { Sidebar } from "@/components/sidebar"
+import { Link, Routes, Route } from "react-router-dom";
+import Sidebar from "@/components/sidebar";
+import { BookOpen } from "lucide-react";
+
+/* Import Each Pages */
+import Chat from "@/app/chat";
+import ReportPage from "@/app/report";
+import BookPage from "@/app/book";
 
 export default function HomePage() {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex h-screen flex-col">
       <header className="sticky top-0 z-10 border-b bg-background px-4 py-3 sm:px-6">
         <div className="flex items-center justify-between">
-          <h1 className="text-lg font-semibold">Chat App</h1>
+          <Link to="/" className="text-lg font-semibold flex items-center">
+            <BookOpen className="mr-2 text-blue-600" /> ITDA; 잇다
+          </Link>
           <div className="flex items-center gap-2">
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
@@ -18,12 +26,25 @@ export default function HomePage() {
           </div>
         </div>
       </header>
-      <div className="flex flex-1">
+
+      <div className="flex flex-1 h-[calc(100vh-56px)] overflow-hidden">
         <Sidebar />
-        <main className="flex flex-1 flex-col">
-          <Chat />
+        <main className="flex-1 flex flex-col overflow-y-auto">
+          {/* 라우팅 영역 */}
+          <Routes>
+            <Route path="/book" element={<BookPage />} />
+            <Route path="/report" element={<ReportPage />} />
+            <Route path="/chat" element={<Chat />} />
+            <Route path="/" 
+            element={
+              <div className="flex-1 p-4 text-gray-600 flex items-center justify-center text-lg">
+                환영합니다! 기능을 선택하세요.
+              </div>
+            } 
+          />
+          </Routes>
         </main>
       </div>
     </div>
-  )
+  );
 }
