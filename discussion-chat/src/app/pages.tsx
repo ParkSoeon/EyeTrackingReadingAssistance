@@ -8,6 +8,8 @@ import { BookOpen } from "lucide-react";
 import Chat from "@/app/chat";
 import ReportPage from "@/app/report";
 import BookPage from "@/app/book";
+import AccountPage from "@/app/account";
+import SettingPage from "@/app/setting";
 
 export default function HomePage() {
   return (
@@ -32,9 +34,12 @@ export default function HomePage() {
         <main className="flex-1 flex flex-col overflow-y-auto">
           {/* 라우팅 영역 */}
           <Routes>
+            <Route path="/account" element={<AccountPage />} />
             <Route path="/book" element={<BookPage />} />
             <Route path="/report" element={<ReportPage />} />
             <Route path="/chat" element={<Chat />} />
+            <Route path="/setting" element={<SettingPage />} />
+            {/* 기본 경로 */}
             <Route path="/" 
             element={
               <div className="flex-1 p-4 text-gray-600 flex items-center justify-center text-lg">
