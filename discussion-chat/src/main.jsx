@@ -1,12 +1,15 @@
-// src/main.tsx 또는 src/main.jsx
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import HomePage from './app/pages'
-import './app/globals.css'
-import './index.css'
+// src/main.jsx
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import HomePage from '@/app/pages';
+import '@/index.css';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <HomePage />
+    <BrowserRouter>
+      <HomePage />
+    </BrowserRouter>
   </React.StrictMode>
-)
+);
