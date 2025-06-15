@@ -1,4 +1,4 @@
-/* src/components/book.tsx */
+/* src/app/book.tsx */
 
 "use client"
 
