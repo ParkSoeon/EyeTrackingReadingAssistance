@@ -11,11 +11,11 @@ void fragment() {
     color += texture(SCREEN_TEXTURE, SCREEN_UV + texel_size * vec2(-1.0, -1.0)) * 0.0625;
     color += texture(SCREEN_TEXTURE, SCREEN_UV + texel_size * vec2( 0.0, -1.0)) * 0.125;
     color += texture(SCREEN_TEXTURE, SCREEN_UV + texel_size * vec2( 1.0, -1.0)) * 0.0625;
-    
+
     color += texture(SCREEN_TEXTURE, SCREEN_UV + texel_size * vec2(-1.0,  0.0)) * 0.125;
     color += texture(SCREEN_TEXTURE, SCREEN_UV) * 0.25;
     color += texture(SCREEN_TEXTURE, SCREEN_UV + texel_size * vec2( 1.0,  0.0)) * 0.125;
-    
+
     color += texture(SCREEN_TEXTURE, SCREEN_UV + texel_size * vec2(-1.0,  1.0)) * 0.0625;
     color += texture(SCREEN_TEXTURE, SCREEN_UV + texel_size * vec2( 0.0,  1.0)) * 0.125;
     color += texture(SCREEN_TEXTURE, SCREEN_UV + texel_size * vec2( 1.0,  1.0)) * 0.0625;
