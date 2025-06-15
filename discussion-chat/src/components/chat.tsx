@@ -1,4 +1,4 @@
-/* src/components/chat.tsx */
+/* src/app/chat.tsx */
 
 "use client"
 
@@ -12,7 +12,7 @@ import { Send } from "lucide-react"
 import { MessageList } from "@/components/message-list"
 import type { Message } from "@/types/message"
 
-export function Chat() {
+export default function ChatPage() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
