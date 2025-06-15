@@ -36,17 +36,19 @@ const Sidebar = () => {
 
       {/* 프로필 */}
       {isExpanded && !isCollapsed && (
-        <div className="bg-white rounded-md shadow p-3 mx-4 my-2 flex items-center gap-3">
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/5904/5904059.png"
-            alt="User avatar"
-            className="w-10 h-10 rounded-full object-cover"
-          />
-          <div className="leading-tight">
-            <p className="text-sm font-semibold">김가천</p>
-            <p className="text-xs text-gray-500">여 / 8세</p>
+        <Link to="/account" className = "no-underline">
+          <div className="bg-white rounded-md shadow p-3 mx-4 my-2 flex items-center gap-3">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/5904/5904059.png"
+              alt="User avatar"
+              className="w-10 h-10 rounded-full object-cover"
+            />
+            <div className="leading-tight">
+              <p className="text-sm font-semibold">김가천</p>
+              <p className="text-xs text-gray-500">여 / 8세</p>
+            </div>
           </div>
-        </div>
+        </Link>
       )}
 
       <Separator />
@@ -56,7 +58,6 @@ const Sidebar = () => {
         <div className="px-4 pt-4 pb-2">
           <p className="text-sm font-semibold text-gray-700 mb-2">학습 활동</p>
           <div>
-
             <Link to="/book">
               <Button variant="ghost" className="h-8 w-full justify-start text-sm flex items-center">
                 <BookOpen className="h-4 w-10 mr-2" />
@@ -77,7 +78,6 @@ const Sidebar = () => {
                 <span>토론</span>
               </Button>
             </Link>
-
           </div>
         </div>
       )}
@@ -86,17 +86,24 @@ const Sidebar = () => {
       {isExpanded && !isCollapsed && (
         <div className="px-4 pt-4 pb-2">
           <p className="text-sm font-semibold text-gray-700 mb-2">설정</p>
-          <Button variant="ghost" className="h-8 w-full justify-start text-sm flex items-center">
-            <User className="h-4 w-10 mr-2" />
-            계정
-          </Button>
-          <Button variant="ghost" className="h-8 w-full justify-start text-sm flex items-center">
-            <SlidersHorizontal className="h-4 w-10 mr-2" />
-            환경 설정
-          </Button>
+
+          <Link to="/account" className="no-underline">
+            <Button variant="ghost" className="h-8 w-full justify-start text-sm flex items-center">
+              <User className="h-4 w-10 mr-2" />
+              계정
+            </Button>
+          </Link>
+
+          <Link to="/setting" className="no-underline">
+            <Button variant="ghost" className="h-8 w-full justify-start text-sm flex items-center">
+              <SlidersHorizontal className="h-4 w-10 mr-2" />
+              환경 설정
+            </Button>
+          </Link>
         </div>
       )}
     </div>
   )
 }
+
 export default Sidebar
