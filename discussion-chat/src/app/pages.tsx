@@ -16,7 +16,7 @@ export default function HomePage() {
     <div className="flex h-screen flex-col">
       <header className="sticky top-0 z-10 border-b bg-background px-4 py-3 sm:px-6">
         <div className="flex items-center justify-between">
-          <Link to="/" className="text-lg font-semibold flex items-center">
+          <Link to="/" className="text-lg font-semibold flex items-center font-extrabold">
             <BookOpen className="mr-2 text-blue-600" /> ITDA; 잇다
           </Link>
           <div className="flex items-center gap-2">
@@ -24,7 +24,7 @@ export default function HomePage() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
               <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500"></span>
             </span>
-            <span className="text-sm text-muted-foreground">Online</span>
+            <span className="text-m text-muted-foreground">Online</span>
           </div>
         </div>
       </header>
