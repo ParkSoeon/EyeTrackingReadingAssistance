@@ -5,12 +5,12 @@
 import type React from "react"
 
 import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { ScrollArea } from "@/components/ui/scroll-area"
+import { Button } from "./ui/button"
+import { Input } from "./ui/input"
+import { ScrollArea } from "./ui/scroll-area"
 import { Send } from "lucide-react"
-import { MessageList } from "@/components/message-list"
-import type { Message } from "@/types/message"
+import { MessageList } from "./message-list"
+import type { Message } from "../types/message"
 
 export default function ChatPage() {
   const [messages, setMessages] = useState<Message[]>([

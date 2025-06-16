@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-from models.choice import Choice
-from schemas.choice import ChoiceCreate
+from server.models.choice import Choice
+from server.schemas.choice import ChoiceCreate
 from typing import List
 
 def create_choices(db: Session,user_id, choice_data_list: List[ChoiceCreate]):

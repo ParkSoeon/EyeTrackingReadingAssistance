@@ -173,4 +173,16 @@
   align-items: center;
   gap: 0.3rem;
   margin: 0;
+}
+
+.error-message {
+  color: #dc2626;
+  font-family: 'Jua', sans-serif;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  padding: 0.5rem;
+  background-color: #fee2e2;
+  border-radius: 8px;
+  border: 1px solid #fecaca;
 } 

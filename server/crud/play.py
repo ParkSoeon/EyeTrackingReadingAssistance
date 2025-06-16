@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from models.play import Play
+from ..models.play import Play
 
 def create_play(db: Session,user_id, story_id):
     play = Play(

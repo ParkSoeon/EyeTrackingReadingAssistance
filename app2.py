@@ -193,3 +193,19 @@ elif st.session_state.quiz_finished:
 else:
     # 퀴즈 시작 전이나 기타 초기 상태일 경우
     st.write("잠시만 기다려 주세요... 문제를 생성 중입니다.")
+
+def create_test_login():
+    import random
+    import string
+    # 테스트용 계정 생성 (아이디: 영문 소문자 6자리, 비번: 영문 대소문자 + 숫자 8자리, 이름: 한글 2글자 (예: 홍길동))
+    아이디 = ''.join(random.choice(string.ascii_lowercase) for _ in range(6))
+    비번 = ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(8))
+    이름 = ''.join(random.choice('가나다라마바사아자차카타파하') for _ in range(2))
+    print("생성된 테스트 로그인 정보:")
+    print("아이디:", 아이디)
+    print("비번:", 비번)
+    print("이름:", 이름)
+    return 아이디, 비번, 이름
+
+# (파일 끝에 아래 호출 추가)
+create_test_login()

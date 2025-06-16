@@ -13,9 +13,9 @@
 // export function Message({ message }: MessageProps) {
 //   const isBot = message.sender === "bot"
 
-import { Avatar } from "@/components/ui/avatar"
-import { cn } from "@/lib/utils"
-import type { Message as MessageType } from "@/types/message"
+import { Avatar } from "./ui/avatar"
+import { cn } from "../lib/utils"
+import type { Message as MessageType } from "../types/message"
 import { formatDistanceToNow } from "date-fns"
 import { Bot, User } from "lucide-react"
 

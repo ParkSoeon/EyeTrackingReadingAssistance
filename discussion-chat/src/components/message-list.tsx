@@ -1,7 +1,7 @@
 /* src/components/message-list.tsx */
 
 import type { Message as MessageType } from "@/types/message"
-import { Message } from "@/components/message"
+import { Message } from "./message"
 
 interface MessageListProps {
   messages: MessageType[]

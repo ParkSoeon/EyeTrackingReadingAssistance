@@ -1,9 +1,9 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
-from crud.play import create_play, get_play_by_id
-from schemas.play import PlayRead, PlayCreate
-from crud.database import get_db
-from routers.user import oauth2_scheme, decode_token
+from ..crud.database import get_db
+from ..crud.play import create_play, get_play_by_id
+from ..schemas.play import PlayCreate, PlayRead
+from .user import oauth2_scheme, decode_token
 
 router = APIRouter(prefix="/plays", tags=["plays"])
 

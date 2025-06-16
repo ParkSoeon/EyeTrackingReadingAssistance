@@ -11,22 +11,51 @@ function Signup() {
     age: '',
     gender: '',
   });
+  const [error, setError] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO: 회원가입 처리
-    navigate('/login');
+    setError('');
+
+    // --- 하드코딩된 테스트 계정 처리 시작 ---
+    if (form.username === 'testuser' && form.password === 'test1234') {
+      console.log('Test user signup simulated. Navigating to login.');
+      navigate('/login');
+      return; // API 호출을 건너뛰고 함수 종료
+    }
+    // --- 하드코딩된 테스트 계정 처리 끝 ---
+
+    try {
+      const response = await fetch('http://localhost:8000/users/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          username: form.username,
+          password: form.password,
+          name: form.name
+        })
+      });
+      const data = await response.json();
+      if (!response.ok) {
+        setError(data.detail || data.message || '회원가입에 실패했습니다.');
+        return;
+      }
+      navigate('/login');
+    } catch {
+      setError('서버 연결에 실패했습니다. 잠시 후 다시 시도해주세요.');
+    }
   };
 
   return (
     <div className="login-bg">
       <div className="login-container">
         <h1 className="login-title">회원가입</h1>
+        {error && <div className="error-message">{error}</div>}
         <form onSubmit={handleSubmit} className="signup-form-2row">
           <div className="signup-row">
             <div className="form-group">

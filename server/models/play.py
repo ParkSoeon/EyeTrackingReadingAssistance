@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from datetime import datetime
 from sqlalchemy import String, Integer, DateTime, ForeignKey
-from crud.database import Base
+from .base import Base
 import uuid
 
 class Play(Base):

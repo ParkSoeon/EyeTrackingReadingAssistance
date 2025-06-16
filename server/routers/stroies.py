@@ -1,10 +1,10 @@
-from fastapi import APIRouter, Depends, HTTPException
-from routers.user import oauth2_scheme, decode_token
+from fastapi import APIRouter, Depends, HTTPException, status
+from .user import oauth2_scheme, decode_token
 from typing import List
-from schemas.choice import ChoiceCreate
+from ..schemas.choice import ChoiceCreate
 from sqlalchemy.orm import Session
-from crud.database import get_db
-from crud.choice import create_choices
+from ..crud.database import get_db
+from ..crud.choice import create_choices
 from fastapi.responses import FileResponse
 
 router = APIRouter(prefix="/stories", tags=["stories"])

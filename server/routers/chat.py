@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException
-from routers.user import oauth2_scheme, decode_token
+from server.routers.user import oauth2_scheme, decode_token
 from pydantic import BaseModel
 from typing import List
 import openai
-from google import genai
+import google.generativeai as genai
 import os
 
 router = APIRouter(prefix="/chat", tags=["chat"])

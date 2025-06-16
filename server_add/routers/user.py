@@ -5,10 +5,10 @@ from jose import JWTError, jwt
 from datetime import datetime, timedelta
 
 from sqlalchemy.orm import Session
-from crud.database import engine, SessionLocal
-from crud.user import create_user, get_user_by_username
+from server.crud.database import engine, SessionLocal
+from server.crud.user import create_user, get_user_by_username
 from schemas.user import UserCreate, UserOut
-from crud.database import get_db
+from server.crud.database import get_db
 
 SECRET_KEY = "your_secret_key"
 ALGORITHM = "HS256"
