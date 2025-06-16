@@ -88,7 +88,7 @@ pip install -r requirements.txt
 <details>
 <summary><b>6. QA (질의응답 데이터/스크립트)</b></summary>
 
-특별한 설치가 필요하지 않으며, Python 스크립트로 바로 실행할 수 있습니다.
+(추가 예정)
 </details>
 
 ---
