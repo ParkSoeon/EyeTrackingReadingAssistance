@@ -33,7 +33,6 @@ React + Vite 기반의 토론/채팅 UI 프로젝트입니다.
    # 또는
    pnpm dev
    ```
-4. 브라우저에서 `http://localhost:5173` 접속
 
 ---
 
