@@ -33,8 +33,9 @@ def get_user_by_username(db: Session, username: str):
 def create_test_user(db: Session):
     test_username = "testuser"
     test_password = "test1234"
+    test_name = "홍길동"
     hashed_password = hash_password(test_password)
-    db_test_user = User(username=test_username, password_hash=hashed_password)
+    db_test_user = User(username=test_username, password_hash=hashed_password, name=test_name)
     try:
         db.add(db_test_user)
         db.commit()
