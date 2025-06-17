@@ -79,7 +79,16 @@ npm run dev
 </details>
 
 <details>
-<summary><b>5. vision (시선 추적/머신러닝)</b></summary>
+<summary><b>5. src (프론트엔드)</b></summary>
+
+```bash
+npm install
+npm run dev
+```
+</details>
+
+<details>
+<summary><b>6. vision (시선 추적/머신러닝)</b></summary>
 
 ```bash
 cd vision
@@ -88,7 +97,7 @@ pip install -r requirements.txt
 </details>
 
 <details>
-<summary><b>6. QA (질의응답 데이터/스크립트)</b></summary>
+<summary><b>7. QA (질의응답 데이터/스크립트)</b></summary>
 
 (추가 예정)
 </details>
